@@ -16,7 +16,7 @@ router.post('/ajax', function(req, res, next) {
   var data = {};
 
   for (i in ababool.pages)  {
-    if(page==i && ababool.pages[i]['ajax']==1) current = i;
+    if(page==i && ababool.pages[i]['ajax']>=1) current = i;
   }
   // load data
 

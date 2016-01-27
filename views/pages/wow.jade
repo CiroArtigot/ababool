@@ -1,20 +1,44 @@
 div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 darkbox")
-  h1 Wow
+  h1 Wow! thats great!
   h3
-    | Some examples made with Ababool
+    | Some examples, demos and ideas
 
   ul(class="list-group list-group-black")
     li(class="list-group-item")
       h4 Incredible page transitions
-      | <p>Ababool is a MEAN Full-Satck solution, do you must install NodeJS and MongoDB before.</p>
-      button(class="btn bt-info"
-      ng-click="gotopage('what',10)"
-      ) Start and installation
+      p Every Ababool Page can take a different animations, you can choose among 64 different CSS3 transitions.
+      button(class="btn btn-primary"
+      ng-click="gotopage('transitions',20)"
+      ) See all transitions
 
   ul(class="list-group list-group-black")
     li(class="list-group-item")
       h4 Request a page with AJAX
-      | <p>Ababool is a MEAN Full-Satck solution, do you must install NodeJS and MongoDB before.</p>
-      button(class="btn bt-info"
-      ng-click="gotopage('what',10)"
-      ) Start and installation
+      p This is a simple demo of an Ababool Page loaded with AJAX (only one time)
+      button(class="btn btn-primary"
+      ng-click="gotopage('ajax1',30)"
+      ) Request a page with AJAX
+
+  ul(class="list-group list-group-black")
+    li(class="list-group-item")
+      h4 Request a page with AJAX
+      p This is a simple demo of an Ababool Page loaded with AJAX (reloads each time is called)
+      button(class="btn btn-primary"
+      ng-click="gotopage('suscribe',30)"
+      ) Request a page with AJAX (reload each time)
+
+  ul(class="list-group list-group-black")
+    li(class="list-group-item")
+      h4 Full Google Map Page
+      p This is a simple demo of an Ababool Page loaded with AJAX (reloads each time is called)
+      button(class="btn btn-primary"
+      ng-click="gotopage('map',30)"
+      ) Request a map
+
+  ul(class="list-group list-group-black")
+    li(class="list-group-item")
+      h4 Youtube
+      p This is a simple demo of an Ababool Page loaded with AJAX (reloads each time is called)
+      button(class="btn btn-primary"
+      ng-click="gotopage('youtube',30)"
+      ) Request a map

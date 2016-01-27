@@ -150,6 +150,34 @@
           "footer": 1
       },
 
+      "transitions" : {
+          "id" : "transitions",
+          "title" : "We love the Ababool transitions",
+          "description": "Take a look to more than 60 different transitions to change a page with Ababool",
+          "animation" : 21
+      },
+
+      "transitions2" : {
+          "id" : "transitions2",
+          "title" : "We love the Ababool transitions",
+          "description": "Take a look to more than 60 different transitions to change a page with Ababool",
+          "animation" : 21
+      },
+
+      "map" : {
+          "id" : "map",
+          "title" : "Full Google Map Page",
+          "description": "Full Google Map Page",
+          "animation" : 21
+      },
+
+      "youtube" : {
+          "id" : "youtube",
+          "title" : "Full video page",
+          "description": "Full video page",
+          "animation" : 21,
+          "ajax" :1
+      },
 
       "suscribe" : {
           "id" : "suscribe",
@@ -159,7 +187,7 @@
           "left" :"what",
           "right":"home",
           "mainmenu" :0,
-          "ajax" :1,
+          "ajax": 2,
           "blocked" : 1,
           "footer":0,
           "animation" : 22
