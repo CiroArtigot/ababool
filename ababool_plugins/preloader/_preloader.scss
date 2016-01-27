@@ -1,0 +1,17 @@
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 9999;
+    background-image: url("../images/ajax-loader.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.preloader.ng-hide {
+    transition: 0.5s linear all;
+    opacity: 0;
+}

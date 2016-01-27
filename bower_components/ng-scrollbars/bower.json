@@ -1,0 +1,32 @@
+{
+	"name": "ng-scrollbars",
+	"version": "0.0.6",
+	"authors": [
+		"minhongrails@gmail.com"
+	],
+	"description": "Port of Malihu's jQuery Custom Scrollbar to AngularJS",
+	"main": "dist/scrollbars.min.js",
+	"keywords": [
+		"scrollbar",
+		"scrollbars",
+		"angularjs",
+		"malihu",
+		"custom"
+	],
+	"license": "MIT",
+	"homepage": "http://iominh.github.io/ng-scrollbars/",
+	"dependencies": {
+		"malihu-custom-scrollbar-plugin": ">=3.0.7",
+		"angular": "^1.2.21"
+	},
+	"ignore": [
+		"**/.*",
+		"demo",
+		"gulp",
+		"node_modules",
+		"bower_components",
+		"app/bower_components",
+		"test",
+		"tests"
+	]
+}

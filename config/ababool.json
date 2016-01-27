@@ -1,0 +1,12 @@
+{
+
+      "general" : {
+          "domain" : "http://ababool.algosemueve.es/",
+          "sitename" : "Ababool MEAN Stack",
+          "lang" : "en-gb"
+      },
+      "socialmedia" : {
+          "twitter" : "@aixeena"
+      }
+
+}

@@ -1,0 +1,11 @@
+ul(id="mainmenupage" class="mainmenupage")
+
+
+  - var thepages2 = pages
+      each value, index in thepages2
+        if value.mainmenu
+          li(
+          id= "menupage-" + index
+          ng-click="gotopage('" + index + "'," + value.animation + ")"
+          class="mainmenulipage mainmenuliitempage "
+          )= value.menutitle

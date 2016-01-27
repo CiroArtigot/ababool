@@ -1,0 +1,27 @@
+div(data-ng-controller="help" data-ng-init="token='" + token + "'")
+  div#messages(class="alert alert-success" data-ng-show="messages" data-ng-bind="messages")
+  form(name="helpForm" novalidate role="form")
+
+    h2 Send your comments
+
+    div(class="form-group")
+      label(for="name") Your Name
+      span(class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required") Required!
+      input(type="text" name="name" data-ng-model="name" class="form-control" required )
+
+    div(class="form-group")
+      label(for="email") Your E-mail address
+      span(class="label label-danger" data-ng-show="submitted && helpForm.email.$error.required") Required!
+      span(class="label label-danger" data-ng-show="submitted && helpForm.$error.email") Invalid email!
+      input(type="email" name="email" data-ng-model="email" class="form-control" required )
+
+    div(class="form-group")
+      label(for="comments") Description
+      span(class="label label-danger" data-ng-show="submitted && helpForm.comments.$error.required") Required!
+      textarea(name="comment" data-ng-model="comment" class="form-control" required)
+
+    button(data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" class="btn btn-default") Submit
+
+p
+p
+p

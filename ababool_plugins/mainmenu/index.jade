@@ -1,0 +1,53 @@
+ul(id="mainmenu" class="mainmenu")
+  li(
+    id= "menu-home"
+    ng-click="gotopage('home',10)"
+    class="mainmenuli mainmenuicon"
+    )
+    span(
+      class="glyphicon glyphicon-home"
+      )
+  li(
+    id= "menu-back"
+    ng-click="gotopage(backpage,10)"
+    class="mainmenuli mainmenuicon"
+    )
+    span(
+      class="glyphicon glyphicon-arrow-left"
+      )
+
+  - var thepages = pages
+      each value, index in thepages
+        if value.mainmenu
+          li(
+          id= "menu-" + index
+          ng-click="gotopage('" + index + "'," + value.animation + ")"
+          class="mainmenuli mainmenuliitem hidden-xs hidden-sm"
+          )= value.menutitle
+
+  - var thepages = pages
+      each value, index in thepages
+        if value.mainmenu && index == cur
+          div(
+            id= "menu-brand"
+            ng-click="gotopage('" + index + "'," + value.animation + ")"
+            class="mainmenuli mainmenuicon visible-xs-* visible-sm-* hidden-lg hidden-md"
+            )= value.menutitle
+
+div(
+  id= "menu-fullscreen"
+  ng-click="screenfull()"
+  class="mainmenuli mainmenuicon"
+  )
+  span(
+    class="glyphicon glyphicon-fullscreen"
+    )
+
+div(
+  id= "menu-mainmenu"
+  ng-click="gotopage('mainmenu',46)"
+  class="mainmenuli mainmenuicon"
+  )
+  span(
+    class="glyphicon glyphicon-menu-hamburger"
+    )

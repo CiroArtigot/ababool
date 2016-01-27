@@ -1,0 +1,12 @@
+doctype html
+html(
+  ng-app="ababool"
+  lang= conf.general.lang
+)
+  head
+    include header.jade
+    include fonts.jade
+    include css.jade
+  body(ng-controller="ababoolCtrl")
+    block content
+    script(src='/javascripts/ababool.min.js')

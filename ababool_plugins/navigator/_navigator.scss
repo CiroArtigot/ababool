@@ -1,0 +1,51 @@
+.navigator {
+    z-index: 9991;
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    background-color: #000;
+    border-radius: 150px;
+    right: 5px;
+    bottom: 45px;
+    opacity: 0.80;
+}
+.navigator:hover {
+    opacity: 1;
+}
+.navigator .glyphicon,
+.navigator a {
+    font-size: 30px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+}
+.navigator .navdisabled .glyphicon,
+.navigator a.navdisabled {
+    color: #333;
+}
+.navigator a:hover .glyphicon {
+    color: #FFFF00;
+}
+.navigator a.navdisabled:hover .glyphicon {
+    color: #333;
+}
+.arrow_left,
+.arrow_right {
+    height: 100px;
+    float: left;
+    padding-top: 30px;
+    width: 30px;
+}
+.arrow_right {
+    float: right;
+}
+.arrow_up,
+.arrow_down {
+    height: 30px;
+    float: left;
+    width: 30px;
+}
+.arrow_down {
+    padding-top: 30px;
+}

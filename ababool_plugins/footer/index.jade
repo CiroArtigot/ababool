@@ -1,0 +1,9 @@
+ul(id="footer" class="footer")
+  - var thepages = pages
+      each value, index in thepages
+        if value.footer
+          li(
+          id= "footerli-" + index
+          ng-click="gotopage('" + index + "'," + value.animation + ")"
+          class="footerli"
+          )= value.menutitle

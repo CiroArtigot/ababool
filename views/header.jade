@@ -1,0 +1,102 @@
+
+meta(
+  charset="UTF-8"
+  )
+
+meta(
+  http-equiv="X-UA-Compatible"
+  content="IE=edge,chrome=1"
+  )
+
+meta(
+  name="viewport"
+  content="width=device-width, initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no"
+  )
+
+- var thepages = pages
+    each value, index in thepages
+      if index == cur
+        title= value.title
+        meta(
+          name="description"
+          content= value.description
+        )
+        if value.author
+          meta(
+            name="author"
+            content= value.author
+          )
+        meta(
+          name="DC.title"
+          content= value.title
+        )
+        meta(
+          name="DC.description"
+          content= value.description
+        )
+        link(
+          href= conf.general.domain + index
+          rel="canonical"
+        )
+        if value.prev
+          link(
+            href= conf.general.domain + value.prev
+            rel="prev"
+          )
+        if value.next
+          link(
+            href= conf.general.domain + value.next
+            rel="next"
+          )
+        if value.ogimage
+          meta(
+             property="og:image"
+             content= conf.general.domain + value.ogimage
+          )
+        meta(
+           property="og:site_name"
+           content= conf.general.sitename
+        )
+        if value.ogtype
+          meta(
+             property="og:type"
+             content= value.ogtype
+          )
+        meta(
+           property="og:url"
+           content= conf.general.domain + index
+        )
+        meta(
+           property="og:title"
+           content= value.title
+        )
+        meta(
+           property="og:description"
+           content= value.description
+        )
+        meta(
+           property="twitter:card"
+           content="summary_large_image"
+        )
+        meta(
+           property="twitter:site"
+           content= conf.socialmedia.twitter
+        )
+        if value.twittercreator
+          meta(
+             property="twitter:creator"
+             content= value.twittercreator
+          )
+        meta(
+           property="twitter:title"
+           content= value.title
+        )
+        meta(
+           property="twitter:description"
+           content= value.description
+        )
+        if value.ogimage
+          meta(
+             property="twitter:image:src"
+             content= conf.general.domain + value.ogimage
+          )
