@@ -4,11 +4,12 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/ababooldb');
 
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'connection error aqui:'));
 db.once('open', function() {
   // we're connected!
-  //console.log('connected');
+  console.log('Connected to Mongo DB');
 });
+
 
 var path = require('path');
 var favicon = require('serve-favicon');

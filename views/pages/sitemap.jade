@@ -1,8 +1,16 @@
-div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 darkbox")
+
+div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 lightbox")
   h1 Site Map
   h3
-    | For Google and other search boots
+    | Ababool automatic Site Map <br/>
+    | for Google and other search boots
 
-  div(class="box2")
-    p
-      SEO Friendly
+  div(class="box4")
+    for result in pages
+      if !result.blocked
+        div(class="box-comment")
+          p(class="name")
+            a(
+              href= "" + conf.general.domain + result.id + ""
+            ) #{result.title}
+          p(class="comment") #{result.description}

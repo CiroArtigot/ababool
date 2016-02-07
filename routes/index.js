@@ -54,7 +54,9 @@ router.get('/*', function(req, res, next) {
   for (i in ababool.pages){
     if(ababool.pages[i]['data']
     && ( ababool.pages[i]['ajax']!=1 || (ababool.pages[i]['ajax']==1 && current == i))
-  ) data[i] = require ('./data/' + ababool.pages[i]['data']);
+  ) {
+      data[i] = require ('./data/' + ababool.pages[i]['data']);
+  }
   }
 
   //console.log('data: ' + JSON.stringify(data));

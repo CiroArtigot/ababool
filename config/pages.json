@@ -11,7 +11,7 @@
           "right":"what",
           "next" : "what",
           "mainmenu" :1,
-          "animation" :6,
+          "animation" :33,
           "author" : "Ciro Artigot",
           "ogimage" : "images/ababool01.jpg",
           "ogtype" : "article",
@@ -20,7 +20,7 @@
 
       "what" : {
           "id" : "what",
-          "title" : "Ababool: main Features and aspects",
+          "title" : "What - Ababool: main Features and aspects",
           "menutitle": "What",
           "description": "What is Ababool? Main Features and aspects: An open source, creative and smart MEAN Javascript Full-Stack Solution",
           "left" :"home",
@@ -28,59 +28,59 @@
           "next" : "wow",
           "prev" : "home",
           "mainmenu" :1,
-          "animation" : 7,
-          "author" : "Ciro Artigot",
-          "ogimage" : "images/ababool01.jpg",
-          "ogtype" : "article",
-          "twittercreator" : "@ciroartigot"
+          "animation" : 7
       },
 
       "wow" : {
           "id" : "wow",
-          "title" : "Why Ababool the JS Full Stack SPA",
+          "title" : "Wow - Ababool: examples, demos and ideas",
           "menutitle": "Wow",
-          "description": "this is the description of why",
+          "description": "Wow! thats great! Some examples, demos and ideas",
           "left" :"what",
-          "right":"home",
+          "right":"how",
+          "next" : "how",
+          "prev" : "what",
           "mainmenu" :1,
-          "animation" : 32,
-          "data" : "why.json"
+          "animation" : 30
       },
 
       "how" : {
           "id" : "how",
-          "title" : "Why Ababool the JS Full Stack SPA",
+          "title" : "How - Ababool: documentation to work with",
           "menutitle": "How",
-          "description": "this is the description of why",
-          "left" :"what",
-          "right":"home",
+          "description": "How. Useful documentation to work with Ababool",
+          "left" :"wow",
+          "right":"with",
+          "next" : "with",
+          "prev" : "wow",
           "mainmenu" :1,
-          "animation" : 32,
-          "data" : "why.json"
+          "animation" : 31
       },
 
       "with" : {
-          "id" : "whith",
-          "title" : "Why Ababool the JS Full Stack SPA",
+          "id" : "with",
+          "title" : "With - Ababool needs your cooperation!",
           "menutitle": "With",
-          "description": "this is the description of why",
-          "left" :"what",
-          "right":"home",
+          "description": "With you. Ababool needs your cooperation!",
+          "left" :"how",
+          "right":"todo",
+          "next" : "todo",
+          "prev" : "how",
           "mainmenu" :1,
-          "animation" : 32,
-          "data" : "why.json"
+          "animation" : 32
       },
 
       "todo" : {
           "id" : "todo",
-          "title" : "Why Ababool the JS Full Stack SPA",
+          "title" : "To do - Ababool: Challenges and outstanding things",
           "menutitle": "To Do",
-          "description": "this is the description of why",
-          "left" :"what",
-          "right":"home",
+          "description": "Things to do. Challenges and outstanding things",
+          "left" :"with",
+          "right":"start",
+          "next" : "start",
+          "prev" : "with",
           "mainmenu" :1,
-          "animation" : 32,
-          "data" : "why.json"
+          "animation" : 33
       },
 
       "start" : {
@@ -88,57 +88,58 @@
           "title" : "Why Ababool the JS Full Stack SPA",
           "menutitle": "Start",
           "description": "this is the description of why",
-          "left" :"what",
-          "right":"home",
+          "left" :"todo",
+          "prev" : "todo",
           "mainmenu" :1,
-          "animation" : 32,
-          "data" : "why.json"
+          "animation" : 32
       },
 
       "license" : {
           "id" : "license",
-          "title" : "Why Ababool the JS Full Stack SPA",
+          "title" : "License - Ababool",
           "menutitle": "License",
-          "description": "this is the description of why",
+          "description": "Ababool project is MIT licensed",
           "animation" : 32,
           "footer": 1
       },
 
       "about" : {
           "id" : "about",
-          "title" : "Why Ababool the JS Full Stack SPA",
+          "title" : "About - Ababool",
           "menutitle": "About",
-          "description": "this is the description of why",
+          "description": "Ababool is a personal project of @ciroartigot",
           "animation" : 32,
           "footer": 1
       },
 
       "contact" : {
           "id" : "contact",
-          "title" : "Why Ababool the JS Full Stack SPA",
+          "title" : "Contact - Ababool",
           "menutitle": "Contact",
-          "description": "this is the description of why",
+          "description": "Contact, social media, discussions, issues and feedbacks",
           "animation" : 32,
           "footer": 1
       },
 
       "feedbacks" : {
           "id" : "feedbacks",
-          "title" : "Why Ababool the JS Full Stack SPA",
+          "title" : "Feedbacks - Ababool",
           "menutitle": "Feedbacks",
-          "description": "this is the description of why",
+          "description": "Do you like Ababool? Please let us to know your feedbaks about it",
           "animation" : 32,
-          "data" : "home.js",
-          "footer": 1
+          "footer": 1,
+          "right" : "form",
+          "data" : "comments.js"
       },
 
-      "donate" : {
-          "id" : "donate",
-          "title" : "Why Ababool the JS Full Stack SPA",
-          "menutitle": "Donate",
-          "description": "this is the description of why",
-          "animation" : 32,
-          "footer": 1
+      "form" : {
+          "id" : "form",
+          "title" : "Form - Ababool",
+          "left" :"feedbacks",
+          "blocked" : 1,
+          "mainmenu" :0,
+          "footer":0,
+          "animation" : 44
       },
 
       "sitemap" : {
@@ -159,15 +160,16 @@
 
       "transitions2" : {
           "id" : "transitions2",
-          "title" : "We love the Ababool transitions",
+          "title" : "Transitions: We love the Ababool transitions",
           "description": "Take a look to more than 60 different transitions to change a page with Ababool",
-          "animation" : 21
+          "animation" : 21,
+          "blocked" : 1
       },
 
       "map" : {
           "id" : "map",
-          "title" : "Full Google Map Page",
-          "description": "Full Google Map Page",
+          "title" : "Google Maps with Ababool",
+          "description": "This is an example of a full page Google Maps integration",
           "animation" : 21
       },
 
@@ -193,19 +195,6 @@
           "animation" : 22
       },
 
-      "form" : {
-          "id" : "form",
-          "title" : "this is a form example",
-          "menutitle": "Form",
-          "description": "this is a form example",
-          "left" :"what",
-          "right":"home",
-          "blocked" : 1,
-          "mainmenu" :0,
-          "footer":0,
-          "animation" : 44
-      },
-
       "ajax1" : {
           "id" : "ajax1",
           "title" : "aaaaaaaaaaaajax1",
@@ -216,8 +205,7 @@
           "reload" : 1,
           "mainmenu" :0,
           "footer":0,
-          "animation" : 22,
-          "data" : "ajax1.js"
+          "animation" : 22
       },
 
       "mainmenu" : {

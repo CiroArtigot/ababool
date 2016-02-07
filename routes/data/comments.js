@@ -9,14 +9,12 @@ var comment_schema = new mongoose.Schema({
 }, {collection : 'comments'});
 
 mongoose.model('Comm', comment_schema);
-mongoose.connect('mongodb://localhost/ababooldb');
+//mongoose.connect('mongodb://localhost/ababooldb')
 var Comm = mongoose.model('Comm');
 
 Comm
-    .find({}) // will get all users
+    .find({}).find({}).limit(5).sort( { date: -1 } )
     .exec(function(err, comments) {
-
-        console.log('comments:' + comments);
+        //console.log('comments:' + comments);
         module.exports = comments;
-
     });

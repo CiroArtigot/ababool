@@ -1,9 +1,15 @@
 div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 darkbox")
   h1 Feedbacks
   h3
-    | xxx
-  div(class="box2")
+    | do you like Ababool? <br/>
+    | please let us to know your feedbaks about it
+  div(class="box3")
+    for result in data['feedbacks']
+      div(class="box-comment")
+        p(class="name") #{result.name}
+        p(class="comment")
+          | #{result.comment}
 
-  button(class="btn btn-info"
+  button(class="btn btn-primary"
   ng-click="gotopage('form',10)"
   ) Send your feedback

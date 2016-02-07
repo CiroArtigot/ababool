@@ -14,36 +14,82 @@ body  {
 }
 
 div#pt-main {
-    background: url(../images/ababool01.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-color: #CCC;
+  background-color: #333;
+  background: url(../images/bright-squares.png) repeat;
+
 }
 
 .pt-page {
   padding-top: 70px;
+  color: #fff;
+  padding-bottom: 40px;
+}
+
+#home {
+  background: url(../images/ababool01p.jpg) no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: #fff;
-}
-
-#home {
-    background: url(../images/ababool03.jpg) no-repeat center center fixed;
 }
 #what {
-    background: url(../images/ababool01.jpg) no-repeat center center fixed;
+  background: url(../images/diamond-upholstery.png) repeat;
+  background-color: #006699; color: #000;
 }
-#why {
-    background: url(../images/ababool02.jpg) no-repeat center center fixed;
+#wow {
+  background: url(../images/diamond-upholstery.png) repeat;
+  background-color: #006699; color: #000;
+}
+#how {
+  background: url(../images/diamond-upholstery.png) repeat;
+  background-color: red; color: #000;
+}
+#with {
+  background: url(../images/diamond-upholstery.png) repeat;
+  background-color: green; color: #000;
+}
+#todo {
+  background: url(../images/diamond-upholstery.png) repeat;
+  background-color: #006699; color: #000;
+}
+#start {
+  background: url(../images/diamond-upholstery.png) repeat;
+  background-color: red; color: #000;
 }
 
-#form {
-    background-color: #fff;
-    color: #000;
+#transitions {
+  background: url(../images/diamond-upholstery.png) repeat;
+  background-color: orange; color: #000;
+}
+#transitions2 {
+  background: url(../images/diamond-upholstery.png) repeat;
+  background-color: #006699; color: #000;
+}
+
+#about {
+  background: url(../images/bright-squares.png) repeat;
+  background-color: #fff; color: #000}
+
+#license {
+  background: url(../images/diamond-upholstery.png) repeat;
+  background-color: #006699; color: #000}
+
+#contact { color: #000}
+
+#feedbacks, #form {
+  background: url(../images/brick-wall-dark.png) repeat;
+  background-color: #999;
+}
+
+button.btn.ababtn {
+    width: 300px;
+    margin-bottom: 5px;
+}
+
+h4-2
+button.btn.ababtn {
+    width: 275px;
+    margin-bottom: 5px;
 }
 
 h1 {
@@ -83,19 +129,34 @@ h4 {
     margin-bottom: 5px;
 }
 
+.h4-2 {
+  color: #fff;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+.h4-2 a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 p {
     margin-bottom: 5px;
 }
 
 span.link{
     cursor: pointer;
+    color: #006699;
 }
 span.link:hover{
   text-decoration: underline;
-  color: yellow;
 }
 
-.box {
+.box {.box-comment {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    margin-bottom: 1px;
+}
   padding-bottom: 60px;
 }
 .box2 {
@@ -106,9 +167,38 @@ span.link:hover{
     margin-bottom: 10px;
     margin-top: 10px;
 }
+.box3 {
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.box4 {
+    color: #000;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
 
+.box-comment {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    margin-bottom: 1px;
+}
+.name {
+    font-weight: bold;
+}
+.comment {
+    font-style: italic;
+}
 .darkbox{
   color: #fff;
+}
+.lightbox{
+  color: #000;
+}
+
+.mr20{
+  margin-right: 20px;
 }
 
 ul.list-group.list-group-black {

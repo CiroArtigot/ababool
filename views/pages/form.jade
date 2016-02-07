@@ -1,27 +1,27 @@
-div(data-ng-controller="help" data-ng-init="token='" + token + "'")
-  div#messages(class="alert alert-success" data-ng-show="messages" data-ng-bind="messages")
-  form(name="helpForm" novalidate role="form")
+div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 darkbox")
+  h1 Feedbacks
+  h3
+    | Please give us your feedbaks about ababool
 
-    h2 Send your comments
+  div(class="box3" data-ng-controller="help" data-ng-init="token='" + token + "'")
+    div#messages(class="alert alert-success" data-ng-show="messages" data-ng-bind="messages")
+    form(name="helpForm" novalidate role="form")
 
-    div(class="form-group")
-      label(for="name") Your Name
-      span(class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required") Required!
-      input(type="text" name="name" data-ng-model="name" class="form-control" required )
+      div(class="form-group")
+        label(for="name") Your Name
+        span(class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required") Required!
+        input(type="text" name="name" data-ng-model="name" class="form-control" required )
 
-    div(class="form-group")
-      label(for="email") Your E-mail address
-      span(class="label label-danger" data-ng-show="submitted && helpForm.email.$error.required") Required!
-      span(class="label label-danger" data-ng-show="submitted && helpForm.$error.email") Invalid email!
-      input(type="email" name="email" data-ng-model="email" class="form-control" required )
+      div(class="form-group")
+        label(for="email") Your E-mail address
+        span(class="label label-danger" data-ng-show="submitted && helpForm.email.$error.required") Required!
+        span(class="label label-danger" data-ng-show="submitted && helpForm.$error.email") Invalid email!
+        input(type="email" name="email" data-ng-model="email" class="form-control" required )
 
-    div(class="form-group")
-      label(for="comments") Description
-      span(class="label label-danger" data-ng-show="submitted && helpForm.comments.$error.required") Required!
-      textarea(name="comment" data-ng-model="comment" class="form-control" required)
+      div(class="form-group")
+        label(for="comments") Your Feedback
+        span(class="label label-danger" data-ng-show="submitted && helpForm.comments.$error.required") Required!
+        textarea(name="comment" data-ng-model="comment" class="form-control" required)
 
-    button(data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" class="btn btn-default") Submit
-
-p
-p
-p
+      button(data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" class="btn btn-danger mr20") Submit
+      button(class="btn btn-primary" ng-click="gotopage(backpage,10)") Go back
