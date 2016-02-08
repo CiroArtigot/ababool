@@ -5,8 +5,8 @@ div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 darkbox")
 
   ul(class="list-group list-group-black")
     li(class="list-group-item")
-      h4 Incredible page transitions
-      p Every Ababool Page can take a different animations, you can choose among 64 different CSS3 transitions.
+      h4 Page transitions
+      p The Ababool pages can take among 64 different animations and CSS3 transitions.
       button(class="btn btn-primary"
       ng-click="gotopage('transitions',20)"
       ) See all transitions
@@ -14,18 +14,24 @@ div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 darkbox")
   ul(class="list-group list-group-black")
     li(class="list-group-item")
       h4 Request a page with AJAX
-      p This is a simple demo of an Ababool Page loaded with AJAX (only one time)
+      p You request a page with AJAX. You can load the page only one time or you can reload it each time is called.
+      p Demo of an Ababool Page loaded with AJAX (only one time)
       button(class="btn btn-primary"
       ng-click="gotopage('ajax1',30)"
-      ) Request a page with AJAX
+      ) Request page
+      p Demo of an Ababool Page loaded with AJAX (reloads each time is called)
+      button(class="btn btn-primary"
+      ng-click="gotopage('suscribe',30)"
+      ) Request page
+
 
   ul(class="list-group list-group-black")
     li(class="list-group-item")
-      h4 Request a page with AJAX
-      p This is a simple demo of an Ababool Page loaded with AJAX (reloads each time is called)
+      h4 Navigator
+      p You can set the right, left, up and down attributes to each page to navigate between them with the navigator plugin.
       button(class="btn btn-primary"
-      ng-click="gotopage('suscribe',30)"
-      ) Request a page with AJAX (reload each time)
+      ng-click="gotopage('navigator',30)"
+      ) Navigator example
 
   ul(class="list-group list-group-black")
     li(class="list-group-item")

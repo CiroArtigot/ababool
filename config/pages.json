@@ -175,19 +175,18 @@
 
       "youtube" : {
           "id" : "youtube",
-          "title" : "Full video page",
-          "description": "Full video page",
+          "title" : "Youtube integration example with Ababool",
+          "menutitle": "Youtube example",
+          "description": "Youtube integration example with Ababool",
           "animation" : 21,
           "ajax" :1
       },
 
       "suscribe" : {
           "id" : "suscribe",
-          "title" : "Why Ababool the JS Full Stack SPA",
-          "menutitle": "suscribe",
-          "description": "this is the description of why",
-          "left" :"what",
-          "right":"home",
+          "title" : "This page is requeste by AJAX each time",
+          "menutitle": "Ajax 2",
+          "description": "This page is requeste by AJAX each time is called",
           "mainmenu" :0,
           "ajax": 2,
           "blocked" : 1,
@@ -195,12 +194,43 @@
           "animation" : 22
       },
 
+      "navigator" : {
+          "id" : "navigator",
+          "title" : "Navigator plugin - Ababool",
+          "description": "Navigator plugin - Ababool: navigate left, right, up and down between pages",
+          "animation" : 38,
+          "left" : "left",
+          "right" : "right",
+          "down" : "down",
+          "up" : "up"
+      },
+
+      "left" : {
+          "id" : "left",
+          "right" : "navigator",
+          "blocked" : 1
+      },
+      "right" : {
+          "id" : "right",
+          "left" : "navigator",
+          "blocked" : 1
+      },
+      "up" : {
+          "id" : "up",
+          "down" : "navigator",
+          "blocked" : 1
+      },
+      "down" : {
+          "id" : "down",
+          "up" : "navigator",
+          "blocked" : 1
+      },
+
       "ajax1" : {
           "id" : "ajax1",
-          "title" : "aaaaaaaaaaaajax1",
-          "menutitle": "Ajax1",
-          "description": "this is the description of why",
-          "down" : "home",
+          "title" : "This page is requeste by AJAX",
+          "menutitle": "Ajax 1",
+          "description": "This page is requeste by AJAX only the first time",
           "ajax" : 1,
           "reload" : 1,
           "mainmenu" :0,
@@ -210,6 +240,8 @@
 
       "mainmenu" : {
           "id" : "mainmenu",
+          "title" : "Main menu",
+          "menutitle": "Main menu",
           "animation" : 11
       }
 
