@@ -199,17 +199,20 @@
 				var pahtlocation = '';
 				var pahtlocationfull = pahtlocation +  id;
 				ga('send', 'pageview', pahtlocationfull);
-				window.history.pushState({}, "Title", id);
+
+				console.log('pahtlocationfull: ' + pahtlocationfull);
+
+				window.history.pushState({}, "Title", "/" + id);
 				return true;
 			}
 
 			$scope.doOnEndOldPage = function(id) {
 				if(id) {
 					var ajax = 0;
-					console.log(id);
+					//console.log(id);
 					var page = document.getElementById(id);
 					if(page.hasAttribute("data-ajax")) ajax = page.attributes['data-ajax'].value;
-					console.log(ajax);
+					//console.log(ajax);
 					if(ajax=='2') page.parentNode.removeChild(page);
 				}
 				return true;

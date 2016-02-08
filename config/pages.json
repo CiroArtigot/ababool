@@ -4,6 +4,7 @@
 
       "home" : {
           "id" : "home",
+          "home" : 1,
           "default" : 1,
           "title" : "Ababool MEAN Javascript Full Stack",
           "menutitle": "Ababool",
@@ -243,7 +244,40 @@
           "title" : "Main menu",
           "menutitle": "Main menu",
           "animation" : 11
+      },
+
+      "blog" : {
+          "id" : "blog",
+          "title" : "Blog - Ababool",
+          "description": "This is the Ababool blog.",
+          "menutitle": "Main menu",
+          "mainmenu" :1,
+          "animation" : 11
       }
+      ,
+
+      "blog/hello-world" : {
+          "id" : "blog/hello-world",
+          "title" : "Blog - Ababool",
+          "description": "This is the Ababool blog.",
+          "menutitle": "Main menu",
+          "mainmenu" :1,
+          "animation" : 11
+      }
+      ,
+
+      "es" : {
+          "id" : "es",
+          "title" : "Ababool en espanol",
+          "description": "Ababool en espanol. Ababool permite mostrar una pagina en otro idioma.",
+          "menutitle": "ESP",
+          "mainmenu" :1,
+          "animation" : 11,
+          "lang" : "es-es"
+      }
+
+
+
 
 
   }

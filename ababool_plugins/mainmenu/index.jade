@@ -27,7 +27,7 @@ ul(id="mainmenu" class="mainmenu")
 
   - var thepages = pages
       each value, index in thepages
-        if value.mainmenu && index == cur
+        if value.mainmenu && value.home
           div(
             id= "menu-brand"
             ng-click="gotopage('" + index + "'," + value.animation + ")"

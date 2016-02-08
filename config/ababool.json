@@ -3,10 +3,14 @@
       "general" : {
           "domain" : "http://ababool.algosemueve.es/",
           "sitename" : "Ababool MEAN Stack",
-          "lang" : "en-gb"
+          "lang" : "en-gb",
+          "author" : "Ciro Artigot"
       },
       "socialmedia" : {
-          "twitter" : "@aixeena"
+          "twitter" : "@aixeena",
+          "ogimage" : "images/ababool01.jpg",
+          "ogtype" : "article",
+          "twittercreator" : "@ciroartigot"
       }
 
 }

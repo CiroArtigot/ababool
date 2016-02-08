@@ -26,6 +26,12 @@ meta(
             name="author"
             content= value.author
           )
+        else
+          meta(
+            name="author"
+            content= conf.general.author
+          )
+
         meta(
           name="DC.title"
           content= value.title
@@ -48,11 +54,18 @@ meta(
             href= conf.general.domain + value.next
             rel="next"
           )
+
         if value.ogimage
           meta(
              property="og:image"
              content= conf.general.domain + value.ogimage
           )
+        else
+          meta(
+             property="og:image"
+             content= conf.general.domain + conf.socialmedia.ogimage
+          )
+
         meta(
            property="og:site_name"
            content= conf.general.sitename
@@ -62,6 +75,12 @@ meta(
              property="og:type"
              content= value.ogtype
           )
+        else
+          meta(
+            property="og:type"
+            content= conf.socialmedia.ogtype
+          )
+
         meta(
            property="og:url"
            content= conf.general.domain + index
@@ -87,6 +106,12 @@ meta(
              property="twitter:creator"
              content= value.twittercreator
           )
+        else
+          meta(
+             property="twitter:creator"
+             content= conf.socialmedia.twittercreator
+          )
+
         meta(
            property="twitter:title"
            content= value.title
@@ -99,4 +124,9 @@ meta(
           meta(
              property="twitter:image:src"
              content= conf.general.domain + value.ogimage
+          )
+        else
+          meta(
+             property="twitter:image:src"
+             content= conf.general.domain + conf.socialmedia.ogimage
           )

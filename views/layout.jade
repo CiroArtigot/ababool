@@ -1,12 +1,19 @@
 doctype html
+
+- var language = pages[cur].lang
+  if language
+  else
+    - var language = conf.general.lang
+
 html(
   ng-app="ababool"
-  lang= conf.general.lang
+  lang= language
 )
   head
     include header.jade
     include fonts.jade
     include css.jade
   body(ng-controller="ababoolCtrl")
+
     block content
     script(src='/javascripts/ababool.min.js')
