@@ -1,13 +1,14 @@
+
 var mongoose = require('mongoose');
-var Comment  = mongoose.model('Comment');
+var models = require('./data/models/comments.js');
+var Comment  = mongoose.model('Comm');
+
 
 //GET - Return all tvshows in the DB
 exports.getComments = function(req, res) {
     Comment.find(function(err, comments) {
-    if(err) res.send(500, err.message);
-
-    console.log('GET /comments')
-        res.status(200).jsonp(comments);
+      if(err) res.send(500, err.message);
+      res.status(200).jsonp(comments);
     });
 };
 
@@ -20,8 +21,7 @@ exports.setComment = function(req, res) {
         res.send({status:'FAIL', session : 'No'});
     } else {
 
-      Comment.create(
-        {
+      Comment.create({
           name : req.body.params.name,
           email: req.body.params.email,
           comment: req.body.params.comment,

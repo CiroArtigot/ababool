@@ -17,8 +17,6 @@ db.once('open', function() {
   console.log('Connected to Mongo DB');
 });
 
-var models = require('./routes/model/comment')(app, mongoose);
-
 var routes = require('./routes/index');
 var parseurl = require('parseurl');
 //var users = require('./routes/users');

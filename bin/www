@@ -4,7 +4,6 @@
 var app = require('../app');
 var http = require('http');
 
-
 // Get port from environment and store in Express.
 var port = process.env.PORT || 3000;
 app.set('port', port);
@@ -19,13 +18,9 @@ server.on('listening', onListening);
 
 // Event listener for HTTP server "error" event.
 function onError(error) {
-
-    console.log('errr');
-
     throw error;
 }
 
 // Event listener for HTTP server "listening" event.
 function onListening() {
-
 }
