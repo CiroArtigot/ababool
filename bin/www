@@ -19,6 +19,9 @@ server.on('listening', onListening);
 
 // Event listener for HTTP server "error" event.
 function onError(error) {
+
+    console.log('errr');
+
     throw error;
 }
 

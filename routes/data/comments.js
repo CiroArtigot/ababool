@@ -1,20 +1,21 @@
 //example of loading data
 
-var mongoose = require('mongoose');
-var comment_schema = new mongoose.Schema({
-  name:   String,
-  email:    String,
-  comment: String,
-  date: Date
-}, {collection : 'comments'});
+module.exports.loaddata = function (req, res, next, current, conf, pages, data) {
 
-mongoose.model('Comm', comment_schema);
-//mongoose.connect('mongodb://localhost/ababooldb')
-var Comm = mongoose.model('Comm');
+  var mongoose = require('mongoose');
+  var Comm =  require('./models/comments.js');
 
-Comm
-    .find({}).find({}).limit(5).sort( { date: -1 } )
-    .exec(function(err, comments) {
-        //console.log('comments:' + comments);
-        module.exports = comments;
-    });
+    Comm
+        .find({}).find({}).limit(5).sort( { date: -1 } )
+        .exec(function(err, comments) {
+            data['feedbacks'] =  comments;
+            res.render('index', {
+              "cur" :current,
+              "token": req.session.token,
+              "url": req.url.substr(1),
+              "pages": pages,
+              "conf": conf,
+              "data": data
+            });
+        });
+};

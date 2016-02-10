@@ -1,6 +1,6 @@
 - var thepages = pages
     each value, index in thepages
-      if value.ajax && index == id
+      if value.ajax && index == current
         div(
         id= index
         ng-class= "theclass('" + index + "')"
