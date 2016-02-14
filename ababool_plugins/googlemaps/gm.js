@@ -12,6 +12,10 @@
 
 	function initialize() {
 
+    console.log('initialize');
+
+    if(map) return;
+
 		var mapOptions = {
 			zoom: 15,
 			center: new google.maps.LatLng("41.70943","-0.99687"),

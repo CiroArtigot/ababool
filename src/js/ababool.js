@@ -152,11 +152,13 @@
 				//if the page isn't loaded then look for it by AJAX
 				if(!ispage) {
 
+					console.log('ajax');
+
 					$scope.preloader = false;
 
 					$http.post('ajax/?id=' + id + '&token=' + $scope.token).
 				    success(function(data, status, headers, config) {
-							$timeout(function(){
+								$timeout(function(){
 							  var template = data;
 								$scope.$apply(function() {
 									$scope.preloader = true;
@@ -167,6 +169,8 @@
         			},1000);
 				    }).
 				    error(function(data, status, headers, config) {
+								console.log('error');
+								return true;
 				    });
 						return true;
 				}
@@ -200,7 +204,7 @@
 				var pahtlocationfull = pahtlocation +  id;
 				ga('send', 'pageview', pahtlocationfull);
 
-				console.log('pahtlocationfull: ' + pahtlocationfull);
+			//	console.log('pahtlocationfull: ' + pahtlocationfull);
 
 				window.history.pushState({}, "Title", "/" + id);
 				return true;

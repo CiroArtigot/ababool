@@ -7,9 +7,9 @@ html a {
 }
 
 body  {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    line-height: 22px;
+    font-family: monospace;
+    font-size: 16px;
+    line-height: 23px;
     font-weight: 300;
 }
 
@@ -26,8 +26,12 @@ div#pt-main {
 }
 
 #home {
-  background: url(../images/diamond-upholstery.png) repeat;
-  background-color: #333; color: #FFF;
+  background: url(../images/ababool01.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFF
 }
 #what {
   background: url(../images/diamond-upholstery.png) repeat;
@@ -44,14 +48,6 @@ div#pt-main {
 #with {
   background: url(../images/diamond-upholstery.png) repeat;
   background-color: green; color: #000;
-}
-#todo {
-  background: url(../images/diamond-upholstery.png) repeat;
-  background-color: #006699; color: #000;
-}
-#start {
-  background: url(../images/diamond-upholstery.png) repeat;
-  background-color: red; color: #000;
 }
 
 #transitions {
@@ -71,7 +67,7 @@ div#pt-main {
   background: url(../images/diamond-upholstery.png) repeat;
   background-color: #006699; color: #000}
 
-  #youtube,
+#youtube,
 #suscribe,
 #ajax1,
 #mainmenu,
@@ -82,6 +78,14 @@ div#pt-main {
 #feedbacks, #form {
   background: url(../images/brick-wall-dark.png) repeat;
   background-color: #999;
+}
+
+.blog {
+  background-color: #e2e2e2;
+  color: #000;
+  font-family: monospace;
+  font-size: 16px;
+  line-height: 23px;
 }
 
 button.btn.ababtn {
@@ -196,6 +200,11 @@ span.link:hover{
 .darkbox{
   color: #fff;
 }
+.darkbox a, .darkbox span.link{
+  color: #e2e2e2 ;
+}
+.darkbox a{
+}
 .lightbox{
   color: #000;
 }
@@ -203,9 +212,70 @@ span.link:hover{
 .mr20{
   margin-right: 20px;
 }
+.mt10{
+  margin-top: 10px;
+}
+.mt20{
+  margin-top: 20px;
+}
+.mb10{
+  margin-bottom : 10px;
+}
+.mb20{
+  margin-bottom: 20px;
+}
+.mb30{
+  margin-bottom: 30px;
+}
+.mt30{
+  margin-top: 30px;
+}
+.mb40{
+  margin-bottom: 40px;
+}
+.mt40{
+  margin-top: 40px;
+}
+
 
 ul.list-group.list-group-black {
     color: #000;
+}
+
+fieldset.files {
+    background-color: #000;
+    padding: 10px;
+    color: #fff;
+    font-family: Courier;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 20px;
+}
+fieldset.files legend {
+    padding: 0;
+    margin: 0;
+    background-color: #006699;
+    width: auto;
+    font-size: 14px;
+    padding: 3px;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+fieldset.files pre {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+code {
+    font-family: Courier;
+    font-size: 14px;
+    padding: 2px 10px;
 }
 
 

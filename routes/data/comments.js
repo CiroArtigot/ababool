@@ -1,6 +1,6 @@
 //example of loading data
 
-module.exports.loaddata = function (req, res, next, current, conf, pages, data) {
+module.exports.loaddata = function (req, res, next, current, conf, pages, data, view) {
 
   var mongoose = require('mongoose');
   var Comm =  require('./models/comments.js');
@@ -9,7 +9,7 @@ module.exports.loaddata = function (req, res, next, current, conf, pages, data) 
         .find({}).find({}).limit(5).sort( { date: -1 } )
         .exec(function(err, comments) {
             data['feedbacks'] =  comments;
-            res.render('index', {
+            res.render( view, {
               "cur" :current,
               "token": req.session.token,
               "url": req.url.substr(1),

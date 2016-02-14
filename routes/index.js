@@ -19,13 +19,13 @@ router.post('/ajax', function(req, res, next) {
   var current = '';
   var data = {};
   var theurl = req.url.substr(1);
+  var view = 'ajax';
 
   for (i in ababool.pages)
     if(page==i && ababool.pages[i]['ajax']>=1) current = i;
 
-  // load data
   if(ababool.pages[current]['data'])
-    require('./data/' + ababool.pages[current]['data']).loaddata(req, res, next, current, conf, pages, data);
+    require('./data/' + ababool.pages[current]['data']).loaddata(req, res, next, current, conf, pages, data, view);
   else
     res.render('ajax', {
       "cur" :current,
@@ -44,6 +44,7 @@ router.get('/*', function(req, res, next) {
   var current = '';
   var theurl = req.url.substr(1);
   var data = {};
+  var view = 'index';
 
   // default page
   for (i in ababool.pages)
@@ -55,7 +56,7 @@ router.get('/*', function(req, res, next) {
 
   // load data
   if(ababool.pages[current]['data'])
-    require('./data/' + ababool.pages[current]['data']).loaddata(req, res, next, current, conf, pages, data);
+    require('./data/' + ababool.pages[current]['data']).loaddata(req, res, next, current, conf, pages, data, view);
   else
     res.render('index', {
       "cur" :current,
