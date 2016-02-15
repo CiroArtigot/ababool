@@ -84,7 +84,6 @@
           "menutitle": "License",
           "description": "Ababool project is MIT licensed",
           "animation" : 32,
-          "ajax" : 1,
           "footer": 1
       },
 
@@ -144,8 +143,7 @@
           "title" : "Why Ababool the JS Full Stack SPA",
           "menutitle": "Site Map",
           "description": "this is the description of why",
-          "animation" : 32,
-          "footer": 1
+          "animation" : 32
       },
 
       "transitions" : {
@@ -246,7 +244,15 @@
       "blog/hello-world" : {
           "id" : "blog/hello-world",
           "title" : "Hello World - Ababool BLOG",
-          "description": "This is the Ababool blog.",
+          "description": "Ababool MEAN Full-Stack Solution is out!.",
+          "animation" : 11,
+          "class" : "blog"
+      },
+
+      "blog/to-do" : {
+          "id" : "blog/to-do",
+          "title" : "Things to do - Ababool BLOG",
+          "description": "There are several thing to do on Ababool",
           "animation" : 11,
           "class" : "blog"
       },

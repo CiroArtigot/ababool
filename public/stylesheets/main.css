@@ -7874,7 +7874,7 @@ div#pt-main {
   padding-bottom: 40px; }
 
 #home {
-  background: url(../images/ababool01.jpg) no-repeat center center fixed;
+  background: url(../images/ababool06.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7940,6 +7940,30 @@ div#pt-main {
   font-family: monospace;
   font-size: 16px;
   line-height: 23px; }
+
+#how {
+  background: url(../images/ababool08.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFF; }
+
+#about {
+  background: url(../images/ababool06.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFF; }
+
+#blog {
+  background: url(../images/ababool07.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFF; }
 
 button.btn.ababtn {
   width: 300px;
@@ -8046,6 +8070,9 @@ span.link:hover {
 .darkbox a, .darkbox span.link {
   color: #e2e2e2; }
 
+.list-group-black a, .list-group-black span.link {
+  color: #006699; }
+
 .lightbox {
   color: #000; }
 
@@ -8075,6 +8102,11 @@ span.link:hover {
 
 .mt40 {
   margin-top: 40px; }
+
+.box4.blogfooter {
+  background-color: #ccc;
+  padding: 20px;
+  margin-top: 20px; }
 
 ul.list-group.list-group-black {
   color: #000; }
@@ -8112,6 +8144,11 @@ code {
   font-family: Courier;
   font-size: 14px;
   padding: 2px 10px; }
+
+ul#mainmenu, div#menu-fullscreen, div#menu-mainmenu {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 27px;
+  line-height: 29px; }
 
 @media screen and (max-width: 480px) {
   h1 {

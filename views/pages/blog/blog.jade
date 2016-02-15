@@ -1,9 +1,27 @@
-div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 lightbox")
+div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 darkbox")
   h1 Blog
 
   div(class="box3")
 
     ul(class="list-group list-group-black")
+
+      li(class="list-group-item")
+        h4
+          span(
+          class="link"
+          ng-click="gotopage('blog/hello-world',30)"
+          ) Hello World
+        p
+          | Ababool MEAN Full-Stack Solution is out!
+
+      li(class="list-group-item")
+        h4
+          span(
+          class="link"
+          ng-click="gotopage('blog/to-do',30)"
+          ) Things to do
+        p
+          | There will always be many outstanding things to do in Ababool
 
       li(class="list-group-item")
         h4

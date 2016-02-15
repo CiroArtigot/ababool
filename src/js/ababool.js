@@ -156,7 +156,7 @@
 
 					$scope.preloader = false;
 
-					$http.post('ajax/?id=' + id + '&token=' + $scope.token).
+					$http.post('/ajax/?id=' + id + '&token=' + $scope.token).
 				    success(function(data, status, headers, config) {
 								$timeout(function(){
 							  var template = data;
