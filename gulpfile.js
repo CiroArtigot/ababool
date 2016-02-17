@@ -6,6 +6,7 @@ var
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify'),
   sass = require('gulp-sass');
+  gutil = require('gulp-util');
 
 // Source and destination folder
 var
@@ -61,6 +62,43 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(css.out))
 });
 
+gulp.task('createapp', function() {
+
+console.log('create');
+
+  gulp
+    .src('ababool_plugins/**/*')
+    .pipe(gulp.dest('./apps/' + gutil.env.name + '/ababool_plugins'));
+
+  gulp
+    .src('bin/**/*')
+    .pipe(gulp.dest('./apps/' + gutil.env.name + '/bin' ));
+
+  gulp
+    .src('config/**/*')
+    .pipe(gulp.dest('./apps/' + gutil.env.name + '/config'));
+
+  gulp
+    .src('routes/**/*')
+    .pipe(gulp.dest('./apps/' + gutil.env.name + '/routes'));
+
+  gulp
+    .src('src/**/*')
+    .pipe(gulp.dest('./apps/' + gutil.env.name + '/src'));
+
+  gulp
+    .src('views/**/*')
+    .pipe(gulp.dest('./apps/' + gutil.env.name + '/views'));
+
+  gulp
+    .src('*.*')
+    .pipe(gulp.dest('./apps/' + gutil.env.name + ''));
+
+  return;
+
+});
+
+
 // javascrits
 gulp.task('javascrits', function() {
     gulp.src([
@@ -70,6 +108,14 @@ gulp.task('javascrits', function() {
     './ababool_plugins/**/*.js'])
         .pipe(concat('ababool.min.js'))
         .pipe(gulp.dest('./public/javascripts/'));
+});
+
+
+gulp.task('app', ['createapp'] , function() {
+  //var www = require(./bin/www');
+
+  console.log('app: ' + gutil.env.name);
+
 });
 
 // default task
