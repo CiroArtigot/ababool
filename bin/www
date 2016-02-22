@@ -3,9 +3,11 @@
 // Module dependencies.
 var app = require('../app');
 var http = require('http');
+var pkg = require('../config.json');
 
-// Get port from environment and store in Express.
-var port = process.env.PORT || 3000;
+var puerto = pkg.port;
+
+var port = puerto || 3000;
 app.set('port', port);
 
 // Create HTTP server.

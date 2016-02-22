@@ -1,5 +1,20 @@
 ul(id="mainmenu" class="mainmenu")
-
+  li(
+    id= "menu-home"
+    ng-click="gotopage('home',10)"
+    class="mainmenuli mainmenuicon"
+    )
+    span(
+      class="glyphicon glyphicon-home"
+      )
+  li(
+    id= "menu-back"
+    ng-click="gotopage(backpage,10)"
+    class="mainmenuli mainmenuicon"
+    )
+    span(
+      class="glyphicon glyphicon-arrow-left"
+      )
 
   - var thepages = pages
       each value, index in thepages
@@ -19,7 +34,14 @@ ul(id="mainmenu" class="mainmenu")
             class="mainmenuli mainmenuicon visible-xs-* visible-sm-* hidden-lg hidden-md"
             )= value.menutitle
 
-
+div(
+  id= "menu-fullscreen"
+  ng-click="screenfull()"
+  class="mainmenuli mainmenuicon"
+  )
+  span(
+    class="glyphicon glyphicon-fullscreen"
+    )
 
 div(
   id= "menu-mainmenu"

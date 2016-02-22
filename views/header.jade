@@ -40,6 +40,11 @@ meta(
           name="DC.description"
           content= value.description
         )
+        if value.amp
+          link(
+            href= conf.general.domain + 'amp/ ' + index
+            rel="amphtml"
+          )
         link(
           href= conf.general.domain + index
           rel="canonical"
@@ -130,3 +135,5 @@ meta(
              property="twitter:image:src"
              content= conf.general.domain + conf.socialmedia.ogimage
           )
+  if ldjson
+    script(type="application/ld+json") !{JSON.stringify(ldjson)}

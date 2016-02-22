@@ -1,0 +1,83 @@
+div(class="box col-xs-12 col-sm-12 col-md-12 col-lg-12 lightbox")
+  h1 Ababool with AMP HTML
+  h3
+    | Ababool integrates the option of using Accelerated Mobile Pages
+
+  include ../../../ababool_plugins/blog/blogdata.jade
+
+  div(class="box4")
+
+    p(class="mt10")
+      | Ababool is a tool to develop attractive Single Page Applications, combining technology, creativity and design.
+
+    p(class="mt10")
+      | But Ababool is also a powerful SEO tool for positioning your project.
+
+    p(class="mt10")
+      | To the possibility that each page has its own URL
+      | and  metas(title, description, canonical, image, open graph...) , now we add
+      | the possibility to have its own <a href="https://www.ampproject.org/" target="_new">AMP page</a>.
+
+    p(class="mt10")
+      | For example for this   post, we have enabled the AMP option.
+      | Then <a href="/amp/blog/accelerated-mobile-pages">this post has static content in this format (AMP)</a>:<br/>
+      | <code>http://ababool.algosemueve.es/amp/blog/accelerated-mobile-pages</code>
+
+    p(class="mt20")
+      | <strong>To enable the AMP option on a page:</strong>
+
+    ol(class="mt10")
+      li
+        | First we need to <strong>add the property</strong> <code>amd = 1</code> on our page on the
+        | <code>./config/pages.json</code> <br/>[ <a href="/blog/working-with-pages">more info: working with pages</a> ]
+
+        fieldset(class="files")
+          legend
+            | ./config/pages.json
+          pre
+            | "blog/accelerated-mobile-pages" : {
+            |   "id" : "blog/accelerated-mobile-pages",
+            |   "title" : "Ababool and AMP HTML pages- Ababool Blog",
+            |   "description": "Ababool and AMP HTML pages: integrates the option of using Accelerated Mobile Pages.",
+            |   "animation" : 33,
+            |   "author" : "Ciro Artigot",
+            |   "class" : "blog",
+            |   "amp" : 1,
+            |   "date" : "02/21/2015"
+            | }
+
+      li(class="mt30")
+        | Create the <strong>JADE HTML content</strong> file, for example:<br/>
+        | <code>./views/pages/amp/blog/accelerated-mobile-pages.jade</code>
+
+        fieldset(class="files")
+          legend
+            | ./views/pages/amp/blog/accelerated-mobile-pages.jade
+          pre
+            | div
+            | h1 With you
+            | h3 Ababool needs your cooperation!
+            | div
+            |   h4 Social
+            |   p ...
+            |   h4 Discussions
+            |   p ...
+            |   h4 Email
+            |   p ...
+            |   h4 Issues
+            |   p ....
+            |   h4 Feedbacks
+            |   p ...
+
+      li(class="mt30")
+        | Route the post file in the file general AMP JADE content file:<br/>
+        | <code>./views/pages/amp/contents.jade</code>
+
+        fieldset(class="files")
+          legend
+            | .   /views/pages/amp/contents.jade
+          pre
+            | if index=="blog/accelerated-mobile-pages"
+            |  include blog/accelerated-mobile-pages.jade
+
+  include ../../../ababool_plugins/blog/blogfooter.jade

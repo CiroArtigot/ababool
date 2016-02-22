@@ -1,0 +1,10 @@
+extends layout_amp
+
+block content
+
+  include amp/google-analytics.html
+
+  - var thepages = pages
+      each value, index in thepages
+        if value.id == cur
+          include pages/amp/contents.jade

@@ -38,6 +38,42 @@ router.post('/ajax', function(req, res, next) {
 
 });
 
+
+router.get('/amp/*', function(req, res, next) {
+
+  var current = '';
+  var theurl = req.url.substr(5);
+  var data = {};
+  var view = 'index_amp';
+  //res.send('the url: ' + theurl);
+
+  console.log('the url: ' + theurl);
+
+  for (i in ababool.pages)
+    if(ababool.pages[i]['default']==1) current = i;
+
+  for (i in ababool.pages)
+    if(theurl==i && ababool.pages[i]['blocked']!=1) current = i;
+
+  console.log('current: ' + current);
+
+
+  if(ababool.pages[current]['data'])
+    require('./data/' + ababool.pages[current]['data']).loaddata(req, res, next, current, conf, pages, data, view);
+  else
+    res.render('index_amp', {
+      "cur" :current,
+      "token": req.session.token,
+      "url": theurl,
+      "pages": pages,
+      "conf": conf,
+      "data": data
+    });
+
+
+});
+
+
 // router for all other peticions
 router.get('/*', function(req, res, next) {
 
@@ -45,6 +81,7 @@ router.get('/*', function(req, res, next) {
   var theurl = req.url.substr(1);
   var data = {};
   var view = 'index';
+  var ldjson = '';
 
   // default page
   for (i in ababool.pages)
@@ -54,9 +91,18 @@ router.get('/*', function(req, res, next) {
   for (i in ababool.pages)
     if(theurl==i && ababool.pages[i]['blocked']!=1) current = i;
 
+  console.log('ld-json: ' + ababool.pages[current]['ld-json']);
+
+  if(ababool.pages[current]['ld-json'])
+    ldjson = require('../config/ld-json/' + ababool.pages[current]['ld-json']);
+
+
+  console.log('ld json: ' + ldjson);
+
+
   // load data
   if(ababool.pages[current]['data'])
-    require('./data/' + ababool.pages[current]['data']).loaddata(req, res, next, current, conf, pages, data, view);
+    require('./data/' + ababool.pages[current]['data']).loaddata(req, res, next, current, conf, pages, data, view, ldjson);
   else
     res.render('index', {
       "cur" :current,
@@ -64,9 +110,14 @@ router.get('/*', function(req, res, next) {
       "url": theurl,
       "pages": pages,
       "conf": conf,
-      "data": data
+      "data": data,
+      "ldjson" : ldjson
     });
 
 });
+
+
+
+
 
 module.exports = router;

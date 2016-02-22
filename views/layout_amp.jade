@@ -1,0 +1,22 @@
+doctype html
+
+- var language = pages[cur].lang
+  if language
+  else
+    - var language = conf.general.lang
+
+html(
+  amp
+  lang= language
+)
+  head
+    include amp/header.jade
+    include amp/fonts.jade
+    include amp/css.jade
+    script( async custom-element="amp-analytics"
+    src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
+    script(async src="https://cdn.ampproject.org/v0.js")
+
+  body
+  
+    block content

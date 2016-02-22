@@ -64,35 +64,52 @@ gulp.task('sass', function() {
 
 gulp.task('createapp', function() {
 
-console.log('create');
-
   gulp
     .src('ababool_plugins/**/*')
-    .pipe(gulp.dest('./apps/' + gutil.env.name + '/ababool_plugins'));
+    .pipe(gulp.dest('../apps/' + gutil.env.name + '/ababool_plugins'));
 
   gulp
     .src('bin/**/*')
-    .pipe(gulp.dest('./apps/' + gutil.env.name + '/bin' ));
+    .pipe(gulp.dest('../apps/' + gutil.env.name + '/bin' ));
 
   gulp
     .src('config/**/*')
-    .pipe(gulp.dest('./apps/' + gutil.env.name + '/config'));
+    .pipe(gulp.dest('../apps/' + gutil.env.name + '/config'));
 
   gulp
     .src('routes/**/*')
-    .pipe(gulp.dest('./apps/' + gutil.env.name + '/routes'));
+    .pipe(gulp.dest('../apps/' + gutil.env.name + '/routes'));
 
   gulp
     .src('src/**/*')
-    .pipe(gulp.dest('./apps/' + gutil.env.name + '/src'));
+    .pipe(gulp.dest('../apps/' + gutil.env.name + '/src'));
 
   gulp
     .src('views/**/*')
-    .pipe(gulp.dest('./apps/' + gutil.env.name + '/views'));
+    .pipe(gulp.dest('../apps/' + gutil.env.name + '/views'));
 
   gulp
     .src('*.*')
-    .pipe(gulp.dest('./apps/' + gutil.env.name + ''));
+    .pipe(gulp.dest('../apps/' + gutil.env.name + ''));
+
+  return;
+
+});
+
+
+gulp.task('updateapp', function() {
+
+  gulp
+    .src('bin/**/*')
+    .pipe(gulp.dest('../apps/' + gutil.env.name + '/bin' ));
+
+  gulp
+    .src('routes/**/*')
+    .pipe(gulp.dest('../apps/' + gutil.env.name + '/routes'));
+
+  gulp
+    .src('*.*')
+    .pipe(gulp.dest('../apps/' + gutil.env.name + ''));
 
   return;
 
@@ -111,11 +128,12 @@ gulp.task('javascrits', function() {
 });
 
 
+gulp.task('update', ['updateapp'] , function() {
+  console.log('App updated: ' + gutil.env.name);
+});
+
 gulp.task('app', ['createapp'] , function() {
-  //var www = require(./bin/www');
-
-  console.log('app: ' + gutil.env.name);
-
+  console.log('App created: ' + gutil.env.name);
 });
 
 // default task

@@ -1,0 +1,70 @@
+div(class="box")
+  p(class="breadcrumb")
+    | This post is published on <a href="/">Ababool</a> > <a href="/blog">Blog</a>
+
+  h1 Ababool with AMP HTML
+
+  h3
+    | Ababool integrates the option of using Accelerated Mobile Pages
+
+  include ../../../../ababool_plugins/blog/blogdata_amp.jade
+
+  div(class="box4")
+
+    p
+      | Ababool is a tool to develop attractive Single Page Applications, combining technology, creativity and design.
+
+    p
+      | But Ababool is also a powerful SEO tool for positioning your project.
+
+    p
+      | To the possibility that each page has its own URL
+      | and  metas(title, description, canonical, image, open graph...) , now we add
+      | the possibility to have its own <a href="https://www.ampproject.org/" target="_blank">AMP page</a>.
+
+    p
+      | For example for this   post, we have enabled the AMP option.
+      | Then <a href="http://ababool.algosemueve.es/amp/blog/accelerated-mobile-pages">this post has static content in this format (AMP)</a>:<br/>
+      | <code>http://ababool.algosemueve.es/amp/blog/accelerated-mobile-pages</code>
+
+    p
+      | <strong>To enable the AMP option on a page:</strong>
+
+    ol
+      li
+        | First we need to <strong>add the property</strong> <code>amd = 1</code> on our page on the
+        | <code>./config/pages.json</code>
+        | <br/>[ <a href="/blog/working-with-pages">more info: working with pages</a> ]<br/>
+
+        code
+          | ./config/pages.json
+        pre
+          | "blog/accelerated-mobile-pages" : {
+          |   "id" : "blog/accelerated-mobile-pages",
+          |   "title" : "Ababool and AMP HTML pages- Ababool Blog",
+          |   "description": "Ababool and AMP HTML pages: integrates the option of using Accelerated Mobile Pages.",
+          |   "animation" : 33,
+          |   "author" : "Ciro Artigot",
+          |   "class" : "blog",
+          |   "amp" : 1,
+          |   "date" : "02/21/2015"
+          | }
+
+      li
+        | Create the <strong>JADE HTML content</strong> file, for example:<br/>
+        | <code>./views/pages/amp/blog/accelerated-mobile-pages.jade</code>
+
+        pre
+          | div
+          |   h1 Ababool with AMP HTML
+          |   ...
+
+      li
+        | Route the post file in the file general AMP JADE content file:<br/>
+        | <code>./views/pages/amp/contents.jade</code>
+
+        pre
+          | if index=="blog/accelerated-mobile-pages"
+          |  include blog/accelerated-mobile-pages.jade
+
+  include ../../../../ababool_plugins/blog/blogfooter_amp.jade

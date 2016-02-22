@@ -1,6 +1,6 @@
 //example of loading data
 
-module.exports.loaddata = function (req, res, next, current, conf, pages, data, view) {
+module.exports.loaddata = function (req, res, next, current, conf, pages, data, view, ldjson) {
 
   var mongoose = require('mongoose');
   var Comm =  require('./models/comments.js');
@@ -15,7 +15,8 @@ module.exports.loaddata = function (req, res, next, current, conf, pages, data, 
               "url": req.url.substr(1),
               "pages": pages,
               "conf": conf,
-              "data": data
+              "data": data,
+              "ldjson" : ldjson
             });
         });
 };

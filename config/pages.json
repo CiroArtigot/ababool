@@ -238,7 +238,8 @@
           "menutitle": "Blog",
           "mainmenu" :1,
           "animation" : 11,
-          "class" : "blog"
+          "class" : "blog",
+          "amp" : 1
       },
 
       "blog/hello-world" : {
@@ -291,6 +292,18 @@
           "class" : "blog"
       },
 
+      "blog/accelerated-mobile-pages" : {
+          "id" : "blog/accelerated-mobile-pages",
+          "title" : "Ababool and AMP HTML pages- Ababool Blog",
+          "description": "Ababool and AMP HTML pages: integrates the option of using Accelerated Mobile Pages.",
+          "animation" : 33,
+          "author" : "Ciro Artigot",
+          "class" : "blog",
+          "amp" : 1,
+          "date" : "2016-02-22T08:00:00+08:00",
+          "ld-json" : "accelerated-mobile-pages.json"
+      },
+
       "es" : {
           "id" : "es",
           "title" : "Ababool en espanol",
@@ -300,9 +313,6 @@
           "animation" : 11,
           "lang" : "es-es"
       }
-
-
-
 
 
   }
