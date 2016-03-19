@@ -1,14 +1,10 @@
 doctype html
 
-- var language = pages[cur].lang
-  if language
-  else
-    - var language = conf.general.lang
-
 html(
   amp
-  lang= language
+  lang= params[0].lang
 )
+
   head
     include amp/header.jade
     include amp/fonts.jade
@@ -18,5 +14,4 @@ html(
     script(async src="https://cdn.ampproject.org/v0.js")
 
   body
-  
     block content

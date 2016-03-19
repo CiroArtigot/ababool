@@ -1,8 +1,8 @@
 
 var mongoose = require('mongoose');
 var models = require('./data/models/comments.js');
+var helper = require('./data/helper.js');
 var Comment  = mongoose.model('Comm');
-
 
 //GET - Return all tvshows in the DB
 exports.getComments = function(req, res) {
@@ -36,3 +36,61 @@ exports.setComment = function(req, res) {
         });
     }
 	};
+
+
+exports.getRSS = function(req, res) {
+
+  var posts = [];
+  var pages = helper.getPages(req, res);
+  var config = helper.getConfig(req, res);
+  var posts = helper.getPosts(pages, req.params.tag);
+
+  res.render('rss', {
+    "posts": posts,
+    "config" : config,
+    "tag" : req.params.tag
+  });
+
+};
+
+
+  exports.getTag = function(req, res, next, view, char) {
+
+    var pages = helper.getPages(req, res);
+    var config = helper.getConfig(req, res);
+    var data = helper.getPosts(pages, req.params.tag);
+    var ldjson = "";
+    var params = helper.getTagParams(req, res, view, pages, config, ldjson, char);
+
+    res.render(view, {
+      "pages": pages,
+      "conf": config,
+      "data": data,
+      "params" : params
+    });
+  };
+
+
+  //get direct pages petition
+  exports.getPages = function(req, res, next, view, char) {
+
+    var data = {};
+    var pages = helper.getPages(req, res);
+    var config = helper.getConfig(req, res);
+    var current = helper.getCurrent(req, res, view, pages, char);
+
+    var ldjson = helper.getSchema(req, res, view, pages, current);
+    var params = helper.getParams(req, res, view, pages, current, config, ldjson, char);
+
+    // load data if is needed
+    if(pages[current]['data'])
+      require('./data/' + pages[current]['data']).loaddata(req, res, next, pages, config, params, view);
+    else
+      res.render(view, {
+        "pages": pages,
+        "conf": config,
+        "data": data,
+        "params" : params
+      });
+
+  };

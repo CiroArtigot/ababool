@@ -1,0 +1,139 @@
+div(class="box")
+  p(class="breadcrumb")
+    | This post is published on <a href="/">Ababool</a> > <a href="/blog">Blog</a>
+
+  h1 Hello World
+
+  h3
+    | Ababool MEAN Full-Stack is out!
+
+  include ../../../../ababool_plugins/blog/blogdata_amp.jade
+
+  div(class="box4")
+
+    p
+      | Create and manage plugins is very easy.<br/>
+      | Ababool plugins are stored on the <code>./ababool_plugins folder</code> <br/>
+
+    p(class="mt10 mb10")
+      | Ababool sample project comes with some default plugins:
+
+      ul
+        li  ./ababool_plugins/ababool_theme
+        li  ./ababool_plugins/blog
+        li  ./ababool_plugins/comments
+        li  ./ababool_plugins/footer
+        li  ./ababool_plugins/fullscreen
+        li  ./ababool_plugins/google_analytics
+        li  ./ababool_plugins/googlemaps
+        li  ./ababool_plugins/navigator
+        li  ./ababool_plugins/preloader
+
+    p(class="mt10 mb10")
+      | Edit the files on each plugin to change/add dessign and functionality to Ababool.<br/>
+      | You can easy create you own plugin.<br/>
+      | Include you own .js files. This files will be included on then main.js file.<br/>
+      | Include you own .scss Sass CSS files. Then you would need to import them on:<br/>
+      | <code>./src/css/main.scss</code><br/>
+
+    code
+      | ./src/css/main.scss
+    pre
+      | @import "bootstrap-variables/variables";
+      | @import "bootstrap";
+      | @import "ababool/ababool";
+      | @import "ababool_theme/theme";
+      | @import "blog/blog";
+      | @import "mainmenu/mainmenu";
+      | @import "footer/footer";
+      | @import "preloader/preloader";
+      | @import "navigator/navigator";
+
+    p(class="mt20")
+      | You can also include .jade files and call them on your page jade views.<br/>
+      | For example you can include the footer plugin jade HTML on your index.jade:
+
+
+    code
+      | ./views/index.jade
+    pre
+      | ...
+      | include ../ababool_plugins/footer/index.jade
+      | ...
+
+    h3(class="mt30 mb10") Ababool default plugins
+
+    p(class="mb20")
+      | These are the Ababool default plugins:
+      | <br/>
+
+    ul(class="list-group list-group-black")
+
+      li(class="list-group-item")
+        h4 Ababool Theme
+        p
+          | Folder:
+          | <code>./ababool_plugins/ababool_theme</code><br/>
+          | You can use different CSS themes on your Ababool projets.<br/>
+          | Create your Sass .scss files and import them on:<br/>
+          | <code>./src/css/main.scss</code>
+
+      li(class="list-group-item")
+        h4 Comments
+        p
+          | Folder:
+          | <code>./ababool_plugins/comments</code><br/>
+          | This plugin enables de AngularJS comments system.
+
+      li(class="list-group-item")
+        h4 Footer
+        p
+          | Folder:
+          | <code>./ababool_plugins/footer</code><br/>
+          | This plugin enables de Footer menu.
+
+      li(class="list-group-item")
+        h4 Fullscreen
+        p
+          | Folder:
+          | <code>./ababool_plugins/fullscreen</code><br/>
+          | This plugin enables de javascript fullscreen function.
+
+      li(class="list-group-item")
+        h4 Google Analytics
+        p
+          | Folder:
+          | <code>./ababool_plugins/google_analytics</code><br/>
+          | This plugin enables de Google analytics script.<br/>
+          | Remember to set here your GA own id.
+
+      li(class="list-group-item")
+        h4 Google Maps
+        p
+          | Folder:
+          | <code>./ababool_plugins/googlemaps</code><br/>
+          | This plugin enables de Google Maps script.
+
+      li(class="list-group-item")
+        h4 Main menu
+        p
+          | Folder:
+          | <code>./ababool_plugins/mainmenu</code><br/>
+          | This plugin enables de Main menu.
+
+      li(class="list-group-item")
+        h4 Navigator
+        p
+          | Folder:
+          | <code>./ababool_plugins/navigator</code><br/>
+          | This plugin enables de Navigator plugin.
+
+      li(class="list-group-item")
+        h4 Preloader
+        p
+          | Folder:
+          | <code>./ababool_plugins/prelaoder</code><br/>
+          | This plugin enables de Preloader plugin.
+
+
+  include ../../../../ababool_plugins/blog/blogfooter_amp.jade

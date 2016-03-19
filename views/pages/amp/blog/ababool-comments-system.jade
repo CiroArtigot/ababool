@@ -1,0 +1,285 @@
+div(class="box")
+  p(class="breadcrumb")
+    | This post is published on <a href="/">Ababool</a> > <a href="/blog">Blog</a>
+
+  h1 Ababool Comments System
+
+  h3
+    | Learn how to create a feedbacks/comments system with Ababool
+
+  include ../../../../ababool_plugins/blog/blogdata_amp.jade
+
+  div(class="box4")
+
+    p
+      | <br/>
+      | With this example of the comments system used in the Ababool sample project
+      | you can see how to create your own Full-Stack MEAN application.
+      | <br/><br/>
+
+    p
+      | To create a comments or feedbacks system with Ababool we would need:<br>
+      ul
+        li  ./config/pages.js
+        li  ./routes/index.js
+        li  ./routes/controller.js
+        li  ./routes/data/comments.js
+        li  ./routes/data/models/comments.js
+        li  ./abbabol_plugins/comments/form.js
+        li  ./views/pages/feedbaks/feedbaks.jade
+        li  ./views/pages/feedbaks/form.jade
+
+    p
+      | <br/>
+      | We need to add two pages to our <code>./config/pages.js</code> file.<br/>
+      | We are going to use the <code>"id" : "feedbacks"</code> and the <code>"id" : "form"</code><br/>
+      | Note that both pages are request by AJAX and will be reloaded each time they are called<br/>
+
+    code
+      | ./config/pages.js
+    pre
+
+      | "feedbacks" : {
+      |   "id" : "feedbacks",
+      |   "title" : "Feedbacks - Ababool",
+      |   "description": "Do you like Ababool? Please let us to know your feedbaks about it",
+      |   "ajax" : 2
+      |  },
+      | "form" : {
+      |   "id" : "form",
+      |   "ajax" : 2,
+      |   "blocked" : 1
+      |  }
+
+    p
+      | <br/>
+      | Edit the <code>index.js</code> on the routes folder and create a route response for each GET/POST request:
+      | <br/>
+
+    code
+      |./routes/index.js
+    pre
+
+      | var express = require('express');
+      | var router = express.Router();
+      | var ababool = require("../config/pages.json");
+      | var pages = ababool.pages;
+      | var conf = require("../config/ababool.json");
+      | var Controller = require ('./controller');
+      | #{''}
+      | router.get('/api/comments', Controller.getComments);
+      | router.post('/api/form', Controller.setComment);
+      | router.post('/ajax', function(req, res, next) {
+      | #{''}
+      |  var page = req.query.id;
+      | var current = '';
+      | var data = {};
+      | var theurl = req.url.substr(1);
+      | #{''}
+      | for (i in ababool.pages)
+      |   if(page==i && ababool.pages[i]['ajax']>=1) current = i;
+      | #{''}
+      | if(ababool.pages[current]['data'])
+      |   require('./data/' + ababool.pages[current]['data']).loaddata(req, res, next, current, conf, pages, data);
+      | else
+      |   res.render('ajax', {
+      |     "cur" :current,
+      |     "token": req.session.token,
+      |     "url": theurl,
+      |     "pages": pages,
+      |     "conf": conf,
+      |     "data": data
+      |    });
+      | #{''}
+      | });
+
+    p
+      | <br/>
+      | Edit the <code>controler.js</code> on the routes folder to create/edit the controllers:
+      | <br/>
+
+    code
+      |./routes/controller.js
+    pre
+      | var mongoose = require('mongoose');
+      | var models = require('./data/models/comments.js');
+      | var Comment  = mongoose.model('Comm');
+      | #{''}
+      | exports.getComments = function(req, res) {
+      |   Comment.find(function(err, comments) {
+      |    if(err) res.send(500, err.message);
+      |     res.status(200).jsonp(comments);
+      |   });
+      | };
+      | #{''}
+      | exports.setComment = function(req, res) {
+      |  var datetime = new Date();
+      |  var session = req.session.token;
+      | #{''}
+      |  if( session != req.body.params.token) {
+      |   res.send({status:'FAIL', session : 'No'});
+      |  } else {
+      | #{''}
+      |   Comment.create({
+      |     name : req.body.params.name,
+      |     email: req.body.params.email,
+      |     comment: req.body.params.comment,
+      |     date: datetime
+      |   },
+      |     function(err, comment) {
+      |       if (err)
+      |         res.send(err);
+      |       else
+      |         res.send({status:'OK'});
+      |     });
+      |   }
+      | };
+
+    p
+      | <br/>
+      | If the data attribute of the requested page (<code>"data" : "comments.js"</code>) is completed
+      | the data will be loaded and included on the view by creating a <code>./routes/data/comments.js</code> file:
+      | <br/>
+
+    code
+      | ./routes/data/comments.js
+    pre
+      | module.exports.loaddata = function (req, res, next, current, conf, pages, data) {
+      | #{''}
+      | var mongoose = require('mongoose');
+      | var Comm =  require('./models/comments.js');
+      | #{''}
+      |   Comm
+      |     .find({}).find({}).limit(5).sort( { date: -1 } )
+      |     .exec(function(err, comments) {
+      |       data['feedbacks'] =  comments;
+      |       res.render('index', {
+      |         "cur" :current,
+      |         "token": req.session.token,
+      |         "url": req.url.substr(1),
+      |         "pages": pages,
+      |         "conf": conf,
+      |         "data": data
+      |       });
+      |     });
+      | };
+
+    p
+      | <br/>
+      | We must define before the Mongoose data Schema:
+      | <br/>
+
+    code
+      | ./routes/data/models/comments.js
+    pre
+      | var mongoose = require('mongoose');
+      | var Schema = mongoose.Schema;
+      | #{''}
+      | var comment_schema = new Schema({
+      |   name:   String,
+      |   email:    String,
+      |   comment: String,
+      |   date: Date
+      | }, {collection : 'comments'});
+      | #{''}
+      | module.exports = mongoose.model('Comm', comment_schema);
+
+    p
+      | <br/>
+      | We need also the angularJS file: <code>./ababoo_plugins/comments/form.js</code>
+      | <br/>
+
+    code
+      | ./ababoo_plugins/comments/form.js
+    pre
+      | #{''}
+      | app.controller('help', function ($scope, $timeout, $http, $compile) {
+      |   $scope.submit = function(form) {
+      |   $scope.submitted = true;
+      | #{''}
+      |   if (form.$invalid) return;
+      | #{''}
+      |   var config = {
+      |     params : {
+      |       'callback' : 'JSON_CALLBACK',
+      |       'name' : $scope.name,
+      |       'email' : $scope.email,
+      |      'comment' : $scope.comment,
+      |      'token': $scope.token
+      |     },
+      |   };
+      | #{''}
+      |   var $thecomment = $http.post('api/form', config)
+      |     .success(function(data, status, headers, config) {
+      |       if (data.status == 'OK') {
+      |         $scope.name = null;
+      |         $scope.email = null;
+      |         $scope.comment = null;
+      |         $scope.messages = 'Your comment has been sent!';
+      |         $scope.submitted = false;
+      |       } else {
+      |         $scope.messages = 'Oops, we received your request, but there was an error processing it.';
+      |       }
+      |     })
+      |     .error(function(data, status, headers, config) {
+      |       $scope.messages = 'There was a network error. Try again later.';
+      |     })
+      |     .finally(function() {
+      |       $timeout(function() { $scope.messages = null;}, 3000);
+      |     });
+      |   };
+      | });
+
+    p
+      | <br/>
+      | This is the feedbacks JADE file: <code>./views/pages/feedbaks/feedbaks.jade</code>
+      | <br/>
+
+    code
+      | ./views/pages/feedbaks/feedbaks.jade
+    pre
+      | h1 Feedbacks
+      | #{''}
+      | div
+      |   for result in data['feedbacks']
+      |     div
+      |       p #{'#'}{result.name}
+      |       p #{'#'}{result.comment}
+      | #{''}
+      | button(class="btn btn-primary"
+      | ng-click="gotopage('form',10)"
+      | ) Send your feedback
+
+    p
+      | <br/>
+      | This is the form JADE file: <code>./views/pages/feedbaks/feedbaks.jade</code>
+      | <br/>
+
+    code
+      | ./views/pages/feedbaks/form.jade
+    pre
+      | h1 Feedbacks
+      | #{''}
+      | div (data-ng-controller="help" data-ng-init="token='" + token + "'")
+      | div#messages(class="alert alert-success" data-ng-show="messages" data-ng-bind="messages")
+      | form(name="helpForm" novalidate role="form")
+      | div(class="form-group")
+      |   label(for="name") Your Name
+      |   span(class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required") Required!
+      |   input(type="text" name="name" data-ng-model="name" class="form-control" required )
+      | div(class="form-group")
+      |   label(for="email") Your E-mail address
+      |   span(class="label label-danger" data-ng-show="submitted && helpForm.email.$error.required") Required!
+      |   span(class="label label-danger" data-ng-show="submitted && helpForm.$error.email") Invalid email!
+      |   input(type="email" name="email" data-ng-model="email" class="form-control" required )
+      |  div(class="form-group")
+      |   label(for="comments") Your Feedback
+      |   span(class="label label-danger" data-ng-show="submitted && helpForm.comments.$error.required") Required!
+      |   textarea(name="comment" data-ng-model="comment" class="form-control" required)
+      | #{''}
+      | button(data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" class="btn btn-danger mr20") Submit
+      | button(class="btn btn-primary" ng-click="gotopage(backpage,10)") Go back
+
+
+
+  include ../../../../ababool_plugins/blog/blogfooter_amp.jade

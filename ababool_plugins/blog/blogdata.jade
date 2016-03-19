@@ -1,3 +1,16 @@
 
+- var dt = new Date(pages[index]['date']);
+- var mm = dt.getMonth() + 1;
+- var dd = dt.getDate();
+- var yyyy = dt.getFullYear();
+- var mmddyyyy = ((mm<10?'0':'')+mm) + '-' + ((dd<10?'0':'')+dd) + '-' + yyyy;
+
 div(class="blogdata")
-  | This post is written by <span class="link" ng-click="gotopage('about',10)" >Ciro Artigot</span>
+  | By <span class="link" ng-click="gotopage('about',10)" >Ciro Artigot</span> |
+  | !{mmddyyyy}
+
+if pages[params[0].current].tags
+  div(class="tags")
+  each tag in pages[params[0].current].tags
+    | <a href="#{conf.general.domain + 'tag/' + tag}" class="btn btn-info btn-xs tag">
+    | <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> #{tag}</a>

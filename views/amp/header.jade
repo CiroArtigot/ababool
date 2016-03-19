@@ -7,15 +7,12 @@ meta(
   name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"
   )
 
-- var thepages = pages
-    each value, index in thepages
-      if index == cur
-        title= value.title
+title= params[0].title
 
-        link(
-          href= conf.general.domain + index
-          rel="canonical"
-        )
+link(
+  href= conf.general.domain + params[0].id + '/' + params[0].tag
+  rel="canonical"
+)
 
 style(amp-boilerplate)
   | body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}

@@ -3,17 +3,17 @@
   "@type": "BlogPosting",
   "mainEntityOfPage":{
     "@type":"WebPage",
-    "@id":"http://ababool.algosemueve.es/blog/accelerated-mobile-pages"
+    "@id":"http://ababool.algosemueve.es/blog/working-with-pages"
   },
-  "headline": "Ababool with AMP HTML",
+  "headline": "Working with pages",
   "image": {
     "@type": "ImageObject",
     "url": "http://ababool.algosemueve.es/images/ababool.jpg",
     "height": 1200,
     "width": 627
   },
-  "datePublished": "2016-02-22T08:00:00+08:00",
-  "dateModified": "2016-02-22T09:20:00+08:00",
+  "datePublished": "2016-02-20T08:00:00+08:00",
+  "dateModified": "2016-02-20T08:00:00+08:00",
   "author": {
     "@type": "Person",
     "name": "Ciro Artigot"
@@ -28,5 +28,5 @@
       "height": 627
     }
   },
-  "description": "Ababool integrates the option of using Accelerated Mobile Pages"
+  "description": "Pages are the way that we create and manage front views in Ababool."
 }

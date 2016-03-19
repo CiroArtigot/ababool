@@ -1,3 +1,9 @@
 
 div(class="blogdata")
   | This post is written by <a href="/about">Ciro Artigot</a>
+
+if pages[params[0].current].tags
+  div(class="tags")
+  | Tags:
+  each tag in pages[params[0].current].tags
+    |  / <a href="#{conf.general.domain + 'amp/tag/' + tag}" class="tag">#{tag}</a>

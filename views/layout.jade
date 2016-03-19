@@ -1,13 +1,8 @@
 doctype html
 
-- var language = pages[cur].lang
-  if language
-  else
-    - var language = conf.general.lang
-
 html(
   ng-app="ababool"
-  lang= language
+  lang= params[0].lang
 )
   head
     include header.jade

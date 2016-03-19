@@ -1,22 +1,20 @@
 //example of loading data
 
-module.exports.loaddata = function (req, res, next, current, conf, pages, data, view, ldjson) {
+module.exports.loaddata = function(req, res, next, pages, config, params, view) {
 
   var mongoose = require('mongoose');
   var Comm =  require('./models/comments.js');
+  var data = {};
 
     Comm
         .find({}).find({}).limit(5).sort( { date: -1 } )
         .exec(function(err, comments) {
             data['feedbacks'] =  comments;
-            res.render( view, {
-              "cur" :current,
-              "token": req.session.token,
-              "url": req.url.substr(1),
+            res.render(view, {
               "pages": pages,
-              "conf": conf,
+              "conf": config,
               "data": data,
-              "ldjson" : ldjson
+              "params" : params
             });
         });
 };

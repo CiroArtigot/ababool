@@ -12,6 +12,7 @@
           "mainmenu" :1,
           "animation" :33
       },
+
       "what" : {
           "id" : "what",
           "title" : "What - Ababool: main Features and aspects",
@@ -69,8 +70,8 @@
           "title" : "Why Ababool the JS Full Stack SPA",
           "menutitle": "Start",
           "description": "this is the description of why",
-          "left" :"width",
-          "prev" : "width",
+          "left" :"with",
+          "prev" : "with",
           "right":"blog",
           "next" : "blog",
           "mainmenu" :1,
@@ -207,22 +208,24 @@
           "right" : "navigator",
           "blocked" : 1
       },
+
       "right" : {
           "id" : "right",
           "left" : "navigator",
           "blocked" : 1
       },
+
       "up" : {
           "id" : "up",
           "down" : "navigator",
           "blocked" : 1
       },
+
       "down" : {
           "id" : "down",
           "up" : "navigator",
           "blocked" : 1
       },
-
 
       "mainmenu" : {
           "id" : "mainmenu",
@@ -239,57 +242,77 @@
           "mainmenu" :1,
           "animation" : 11,
           "class" : "blog",
-          "amp" : 1
+          "amp" : 1,
+          "ajax" : 1,
+          "data" : "blog.js",
+          "rss" : "blog"
       },
 
       "blog/hello-world" : {
           "id" : "blog/hello-world",
-          "title" : "Hello World - Ababool BLOG",
-          "description": "Ababool MEAN Full-Stack Solution is out!.",
+          "title" : "Hello World",
+          "description": "Ababool MEAN Full-Stack is out!. A tool, a framework ... to develop ideas.",
           "animation" : 11,
-          "class" : "blog"
-      },
-
-      "blog/to-do" : {
-          "id" : "blog/to-do",
-          "title" : "Things to do - Ababool BLOG",
-          "description": "There are several thing to do on Ababool",
-          "animation" : 11,
-          "class" : "blog"
+          "class" : "blog",
+          "date" : "2016-02-16T08:00:00+08:00",
+          "ld-json" : "hello-world.json",
+          "tags": ["blog"],
+          "ajax" : 1,
+          "amp" : 1
       },
 
       "blog/ababool-restful-api" : {
           "id" : "blog/ababool-restful-api",
-          "title" : "API REST - Ababool BLOG",
-          "description": "API REST - Ababool BLOG",
+          "title" : "Ababool as a RESTful API",
+          "description": "Develop easy RESTful applications with Ababool.",
           "animation" : 33,
-          "class" : "blog"
+          "class" : "blog",
+          "date" : "2016-02-18T08:00:00+08:00",
+          "ld-json" : "ababool-restful-api.json",
+          "tags": ["blog", "how to", "RESTful"],
+          "ajax" : 1,
+          "amp" : 1
       },
 
       "blog/ababool-comments-system" : {
           "id" : "blog/ababool-comments-system",
-          "title" : "API REST - Ababool BLOG",
-          "description": "API REST - Ababool BLOG",
+          "title" : "Ababool Comments System",
+          "description": "Learn how to create a feedbacks/comments system with Ababool",
           "animation" : 33,
-          "class" : "blog"
+          "class" : "blog",
+          "date" : "2016-02-19T08:00:00+08:00",
+          "ld-json" : "ababool-comments-system.json",
+          "tags": ["blog", "how to"],
+          "ajax" : 1,
+          "amp" : 1
       },
 
       "blog/working-with-pages" : {
           "id" : "blog/working-with-pages",
-          "title" : "Working with pages - Ababool Blog",
-          "description": "Working with pages - Ababool Blog",
+          "title" : "Working with pages",
+          "description": "Pages are the way that we create and manage front views in Ababool",
           "animation" : 33,
           "author" : "Ciro Artigot",
-          "class" : "blog"
+          "class" : "blog",
+          "date" : "2016-02-20T08:00:00+08:00",
+          "ld-json" : "working-with-pages.json",
+          "tags": ["blog", "how to", "SEO"],
+          "ajax" : 1,
+          "amp" : 1
       },
 
       "blog/ababool-plugins" : {
           "id" : "blog/ababool-plugins",
-          "title" : "Ababool plugins - Ababool Blog",
-          "description": "Ababool plugins - Ababool Blog",
+          "title" : "Ababool plugins",
+          "description": "You can use and create Ababool plugins to increase the project functionality",
           "animation" : 33,
           "author" : "Ciro Artigot",
-          "class" : "blog"
+          "class" : "blog",
+          "date" : "2016-02-21T08:00:00+08:00",
+          "ld-json" : "ababool-plugins.json",
+          "tags": ["blog", "how to"],
+          "ajax" : 1,
+          "amp" : 1
       },
 
       "blog/accelerated-mobile-pages" : {
@@ -299,9 +322,12 @@
           "animation" : 33,
           "author" : "Ciro Artigot",
           "class" : "blog",
-          "amp" : 1,
           "date" : "2016-02-22T08:00:00+08:00",
-          "ld-json" : "accelerated-mobile-pages.json"
+          "ogimage" : "images/amp.jpg",
+          "ld-json" : "accelerated-mobile-pages.json",
+          "tags": ["AMP", "blog", "SEO", "how to"],
+          "ajax" : 1,
+          "amp" : 1
       },
 
       "es" : {
@@ -312,6 +338,13 @@
           "mainmenu" :0,
           "animation" : 11,
           "lang" : "es-es"
+      },
+
+      "tag" : {
+          "id" : "tag",
+          "amp" : 1,
+          "ajax":1,
+          "class" : "blog"
       }
 
 

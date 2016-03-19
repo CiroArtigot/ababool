@@ -1,8 +1,9 @@
 {
 
       "general" : {
-          "domain" : "http://ababool.algosemueve.es/",
+          "domain" : "http://localhost:3000/",
           "sitename" : "Ababool MEAN Stack",
+          "description" : "Open source and creative MEAN Stack Solution to dream Single Page Applications",
           "lang" : "en-gb",
           "author" : "Ciro Artigot"
       },
@@ -11,6 +12,20 @@
           "ogimage" : "images/ababool.jpg",
           "ogtype" : "article",
           "twittercreator" : "@ciroartigot"
+      },
+      "tags" : {
+          "blog" :{
+              "title" : "Ababool blog",
+              "description" : "Ababool blog post."
+          },
+          "SEO" :{
+              "title" : "SEO - Ababool blog",
+              "description" : "Ababool blog post: SEO"
+          },
+          "How to" :{
+              "title" : "How to - Ababool blog",
+              "description" : "Ababool blog post: How to"
+          }
       }
 
 }

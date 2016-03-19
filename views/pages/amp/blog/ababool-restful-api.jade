@@ -1,0 +1,88 @@
+div(class="box")
+  p(class="breadcrumb")
+    | This post is published on <a href="/">Ababool</a> > <a href="/blog">Blog</a>
+
+  h1 Ababool as a RESTful API
+
+  h3
+    | Develop easy RESTful applications with Ababool.
+
+  include ../../../../ababool_plugins/blog/blogdata_amp.jade
+
+  div(class="box4")
+
+    p(class="mt20")
+      | Developing RESTful apps with Ababool is very simple:<br>
+      | For example you can get the JSON feedbacks of this site calling (GET) the URI: <br/>
+      | <code>http://localhost:3000/api/comments</code> <br/>
+    p(class="mt20")
+      | You can easily create your own RESTful API working with:<br/>
+      ul
+        li  ./routes/index.js
+        li  ./routes/controller.js
+
+    code
+      |./routes/index.js
+    pre
+      | var Controller = require ('./controller');
+      | router.get('/api/comments', Controller.getComments);
+
+    code
+      |./routes/controller.js
+    pre
+      | var mongoose = require('mongoose');
+      | var models = require('./data/models/comments.js');
+      | var Comment  = mongoose.model('Comm');
+      | #{''}
+      | exports.getComments = function(req, res) {
+      |   Comment.find(function(err, comments) {
+      |    if(err) res.send(500, err.message);
+      |     res.status(200).jsonp(comments);
+      |   });
+      | };
+
+    p
+      | <br/>
+      | In our example you can also POST comments or feedbacks using the URI:
+      | <code>http://localhost:3000/api/form</code> <br/>
+
+    code
+      |./routes/index.js
+    pre
+      | var Controller = require ('./controller');
+      | router.post('/api/form', Controller.setComment);
+
+
+    code
+      |./routes/controller.js
+    pre
+      | var mongoose = require('mongoose');
+      | var models = require('./data/models/comments.js');
+      | var Comment  = mongoose.model('Comm');
+      | #{''}
+
+      | exports.setComment = function(req, res) {
+      |  var datetime = new Date();
+      |  var session = req.session.token;
+      | #{''}
+      |  if( session != req.body.params.token) {
+      |   res.send({status:'FAIL', session : 'No'});
+      |  } else {
+      | #{''}
+      |   Comment.create({
+      |     name : req.body.params.name,
+      |     email: req.body.params.email,
+      |     comment: req.body.params.comment,
+      |     date: datetime
+      |   },
+      |     function(err, comment) {
+      |       if (err)
+      |         res.send(err);
+      |       else
+      |         res.send({status:'OK'});
+      |     });
+      |   }
+      | };
+
+
+  include ../../../../ababool_plugins/blog/blogfooter_amp.jade

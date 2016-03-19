@@ -1,4 +1,5 @@
 ul(id="mainmenu" class="mainmenu")
+
   li(
     id= "menu-home"
     ng-click="gotopage('home',10)"
@@ -34,14 +35,7 @@ ul(id="mainmenu" class="mainmenu")
             class="mainmenuli mainmenuicon visible-xs-* visible-sm-* hidden-lg hidden-md"
             )= value.menutitle
 
-div(
-  id= "menu-fullscreen"
-  ng-click="screenfull()"
-  class="mainmenuli mainmenuicon"
-  )
-  span(
-    class="glyphicon glyphicon-fullscreen"
-    )
+
 
 div(
   id= "menu-mainmenu"

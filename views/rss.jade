@@ -1,0 +1,24 @@
+doctype xml
+rss(version="2.0", xmlns:atom="http://www.w3.org/2005/Atom")
+    channel
+        title #{config['general'].sitename}
+        link <a href="#{config['general'].domain}" rel="nofollow">#{config['general'].domain}</a>
+        atom:link(
+          rel="self",
+          type="application/rss+xml",
+          href= config['general'].domain + "rss/" + tag)
+        description #{config['general'].description}
+        language #{config['general'].lang}
+        if posts.length
+            lastBuildDate= new Date(posts[0].publishedAt).toUTCString()
+        each post in posts
+            item
+                title= post.title
+                link <a href="#{config['general'].domain + post.slug}" rel="nofollow">#{config['general'].domain + post.slug}</a>
+                description
+                    | <![CDATA[
+                    | !{post.teaser}
+                    | <a href="#{config['general'].domain + post.slug}" rel="nofollow">Read more</a>
+                    | ]]>
+                pubDate= new Date(post.publishedAt).toUTCString()
+                guid(isPermaLink='false') <a href="#{ config['general'].domain + post.slug}" rel="nofollow">#{config['general'].domain + post.slug}</a>

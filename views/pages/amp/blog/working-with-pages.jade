@@ -1,0 +1,213 @@
+div(class="box")
+  p(class="breadcrumb")
+    | This post is published on <a href="/">Ababool</a> > <a href="/blog">Blog</a>
+
+  h1 Working with pages
+
+  h3
+    | Pages are the way that we create and manage front views in Ababool
+
+  include ../../../../ababool_plugins/blog/blogdata_amp.jade
+
+  div(class="box4")
+
+    p
+      | Create and manage pages is very easy editing the following files:
+      ul
+        li  ./config/pages.js
+        li  ./views/pages/contents.jade
+        li  ./views/pages/sections/with.jade
+
+    p
+      | Edit <code>./config/pages.js</code> to edit / add or remove pages in Ababool.<br/>
+      | For example to add a page called "with" :
+
+    code
+      | ./config/pages.js
+    pre
+      | "with" : {
+      |   "id" : "with",
+      |   "title" : "With - Ababool needs your cooperation!",
+      |   "menutitle": "With",
+      |   "description": "With you. Ababool needs your cooperation!",
+      |   "left" :"how",
+      |   "right":"todo",
+      |   "next" : "todo",
+      |   "prev" : "how",
+      |   "mainmenu" :1,
+      |   "animation" : 32
+      | }
+
+    p(class="mt20")
+      | Edit <code>./views/pages/contents.jade</code> to edit / add or remove the views from tne pages in Ababool.<br/>
+      | For example to add a view for our page "with" :
+
+    code
+      | ./views/pages/contents.jade
+    pre
+      | if index=="with"
+      |   include sections/with.jade
+
+    code
+      | ./views/pages/sections/with.jade
+    pre
+      | div
+      | h1 With you
+      | h3 Ababool needs your cooperation!
+      | div
+      |   h4 Social
+      |   p ...
+      |   h4 Discussions
+      |   p ...
+      |   h4 Email
+      |   p ...
+      |   h4 Issues
+      |   p ....
+      |   h4 Feedbacks
+      |   p ...
+
+    p(class="mt20")
+      | Note that Ababool views uses <a href="http://jade-lang.com/reference/" target="_blank">JADE HTML language</a>.
+
+    br
+    h3 Ababool Page attributes
+    p
+      | These are the attributes that you can set on a page:
+      | <br/>
+
+    ul(class="list-group list-group-black")
+
+      li(class="list-group-item")
+        h4 id
+        p
+          | This is the page id. Must be the same id as the index, unique and url safe. <br/>
+          | For example <code>"id" : "blog"</code> <br/>
+          | It is possible to set a composed id: <code>"id" : "blog/working-with-pages"</code>
+
+      li(class="list-group-item")
+        h4 home
+        p Add the <code>"home" : 1</code> attribute to set the site home page.
+
+      li(class="list-group-item")
+        h4 default
+        p Add the <code>"default" : 1</code> attribute to set the site default page.
+
+      li(class="list-group-item")
+        h4 title
+        p
+          | Set the title attribute to append to head title and social metas: <br/>
+          | <code>#{'<title>Working with pages - Ababool Blog</title>'}</code><br/>
+          | <code>#{'<meta property="og:title" content="Working with pages - Ababool Blog">'}</code><br/>
+          | <code>#{'<meta name="DC.title" content="Working with pages - Ababool Blog"> '}</code><br/>
+          | <code>#{'<meta property="twitter:title" content="Working with pages - Ababool Blog">'}</code>
+
+      li(class="list-group-item")
+        h4 menutitle
+        p
+          | This is the menu text of the page.
+          | For example <code>"menutitle" : "Home"</code>
+
+      li(class="list-group-item")
+        h4 description
+        p
+          | Set the description attribute to append to head description and social metas: <br/>
+          | <code>#{'<meta name="description" content="Working with pages - Ababool Blog">'}</code><br/>
+          | <code>#{'<meta name="DC.description" content="Working with pages - Ababool Blog">'}</code><br/>
+          | <code>#{'<meta property="og:description" content="Working with pages - Ababool Blog">'}</code><br/>
+          | <code>#{'<meta property="twitter:description" content="Working with pages - Ababool Blog">'}</code>
+
+      li(class="list-group-item")
+        h4 right / left / down / up
+        p
+          | These are the navigator attributes of the page. <br/>
+          | Set each attribute to the page id that you want the navigator go.<br/>
+          | for example: <code>"right": "with"</code> to set the navigator right arrow to go to the "with" page.
+
+      li(class="list-group-item")
+        h4 next / prev
+        p
+          | Set the next and pre attributes to append to the head metadata the next and prev SEO links.<br/>
+          | For example add <code>"next":"wow"</code> and <code>"prev":"home"</code> to append:<br/>
+          | <code>#{'<link href="http://ababool.algosemueve.es/home" rel="prev">'}</code><br/>
+          | <code>#{'<link href="http://ababool.algosemueve.es/wow" rel="next">'}</code>
+
+      li(class="list-group-item")
+        h4 mainmenu
+        p Set the attribute <code>"mainmenu" : 1</code> to append then page to the mainmenu.
+
+      li(class="list-group-item")
+        h4 footer
+        p Set the attribute <code>"footer" : 1</code> to append then page to the footer menu.
+
+      li(class="list-group-item")
+        h4 animation
+        p
+          | Set the default page animation with the attribute <code>"animation" : 10</code>.<br/>
+          | <span class="link" ng-click="gotopage('transitions',10)" >Take a look</span> to the 64 different possible animations.
+
+
+      li(class="list-group-item")
+        h4 author
+        p
+          | Set the attribute <code>"author" : "Ciro Artigot"</code> to append to the head metadata the author: <br/>
+          | <code>#{'<meta name="author" content="Ciro Artigot">'}</code>
+
+      li(class="list-group-item")
+        h4 ogimage
+        p
+          | Set the attribute <code>"ogimage" : "images/ababool01.jpg"</code> to append to the social image metas: <br/>
+          | <code>#{'<meta property="og:image" content="http://ababool.algosemueve.es/images/ababool01.jpg">'}</code><br/>
+          | <code>#{'<meta property="twitter:image:src" content="http://ababool.algosemueve.es/images/ababool01.jpg">">'}</code>
+
+
+      li(class="list-group-item")
+        h4 ogtype
+        p
+          | Set the attribute <code>"ogtype" : "article"</code> to append to the head metadata the page type: <br/>
+          | <code>#{'<meta property="og:type" content="article">'}</code>
+
+      li(class="list-group-item")
+        h4 twittercreator
+        p
+          | Set the attribute <code>"twittercreator" : "@ciroartigot"</code> to append to the head he Twitter creator meta: <br/>
+          | <code>#{'<meta property="twitter:creator" content="@ciroartigot">'}</code>
+
+      li(class="list-group-item")
+        h4 ajax
+        p
+          | Set the ajax attribute to <code> "ajax":"1" </code> to force lo load the page by AJAX the first time is called<br/>
+          | Set the ajax attribute to <code> "ajax":"2" </code> to force to reload it by AJAX
+          | each time is called.<br/>
+          | The AJAX can be called directly (with their own full URL)
+          | except if you set the blocked attribute.
+
+      li(class="list-group-item")
+        h4 blocked
+        p
+          | Set the blocked attribute to <code> "blocked":"1" </code> to block the external direct access to the page.
+
+      li(class="list-group-item")
+        h4 data
+        p
+          | Set the data attribute data <code> "data" : "comments.js" </code> to load JSON data with the page.<br/>
+          | <span class="link" ng-click="gotopage('blog/ababool-comments-system',10)" >Take a look</span> to the Ababool Comments System
+          | to see an example that loads data with the page.
+
+      li(class="list-group-item")
+        h4 lang
+        p
+          | With the lang attribute you can set the language of your page.<br/>
+          | For example set <code>  "lang" : "es-es"</code> to set the language to Spanish:<br/>
+          | <code>#{'<html ng-app="ababool" lang="es-es">'}</code><br/>
+          | This attribute lets you to create multilingual sites:
+          | <span class="link" ng-click="gotopage('es',10)" >spanish Ababool version</span>.
+
+      li(class="list-group-item")
+        h4 amp
+        p
+          | With the amp attribute you activate the AMP HTML pages.<br/>
+          | For example set <code>  "amd" : 1</code> to get a AMP Page:<br/>
+          | <code>http://yoursite.com/amp/your-url</code><br/>
+
+
+  include ../../../../ababool_plugins/blog/blogfooter_amp.jade

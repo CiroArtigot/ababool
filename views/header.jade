@@ -13,127 +13,95 @@ meta(
   content="width=device-width, initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no"
   )
 
-- var thepages = pages
-    each value, index in thepages
-      if index == cur
-        title= value.title
-        meta(
-          name="description"
-          content= value.description
-        )
-        if value.author
-          meta(
-            name="author"
-            content= value.author
-          )
-        else
-          meta(
-            name="author"
-            content= conf.general.author
-          )
+title= params[0].title
 
-        meta(
-          name="DC.title"
-          content= value.title
-        )
-        meta(
-          name="DC.description"
-          content= value.description
-        )
-        if value.amp
-          link(
-            href= conf.general.domain + 'amp/ ' + index
-            rel="amphtml"
-          )
-        link(
-          href= conf.general.domain + index
-          rel="canonical"
-        )
-        if value.prev
-          link(
-            href= conf.general.domain + value.prev
-            rel="prev"
-          )
-        if value.next
-          link(
-            href= conf.general.domain + value.next
-            rel="next"
-          )
-
-        if value.ogimage
-          meta(
-             property="og:image"
-             content= conf.general.domain + value.ogimage
-          )
-        else
-          meta(
-             property="og:image"
-             content= conf.general.domain + conf.socialmedia.ogimage
-          )
-
-        meta(
-           property="og:site_name"
-           content= conf.general.sitename
-        )
-        if value.ogtype
-          meta(
-             property="og:type"
-             content= value.ogtype
-          )
-        else
-          meta(
-            property="og:type"
-            content= conf.socialmedia.ogtype
-          )
-
-        meta(
-           property="og:url"
-           content= conf.general.domain + index
-        )
-        meta(
-           property="og:title"
-           content= value.title
-        )
-        meta(
-           property="og:description"
-           content= value.description
-        )
-        meta(
-           property="twitter:card"
-           content="summary_large_image"
-        )
-        meta(
-           property="twitter:site"
-           content= conf.socialmedia.twitter
-        )
-        if value.twittercreator
-          meta(
-             property="twitter:creator"
-             content= value.twittercreator
-          )
-        else
-          meta(
-             property="twitter:creator"
-             content= conf.socialmedia.twittercreator
-          )
-
-        meta(
-           property="twitter:title"
-           content= value.title
-        )
-        meta(
-           property="twitter:description"
-           content= value.description
-        )
-        if value.ogimage
-          meta(
-             property="twitter:image:src"
-             content= conf.general.domain + value.ogimage
-          )
-        else
-          meta(
-             property="twitter:image:src"
-             content= conf.general.domain + conf.socialmedia.ogimage
-          )
-  if ldjson
-    script(type="application/ld+json") !{JSON.stringify(ldjson)}
+meta(
+  name="description"
+  content= params[0].description
+)
+meta(
+  name="author"
+  content= params[0].author
+)
+meta(
+  name="DC.title"
+  content= params[0].title
+)
+meta(
+  name="DC.description"
+  content= params[0].description
+)
+if params[0].amp
+  link(
+    href= conf.general.domain + 'amp/' + params[0].id + '/' + params[0].tag
+    rel="amphtml"
+  )
+link(
+  href= conf.general.domain + params[0].id + '/' + params[0].tag
+  rel="canonical"
+)
+if pages[params[0].id].prev
+  link(
+    href= conf.general.domain + pages[params[0].id].prev
+    rel="prev"
+  )
+if pages[params[0].id].next
+  link(
+    href= conf.general.domain + pages[params[0].id].next
+    rel="next"
+  )
+if params[0].rss
+  link(
+    href= conf.general.domain + 'rss/' + params[0].rss
+    rel="alternate" type="application/atom+xml" title="Atom 1.0"
+  )
+meta(
+   property="og:image"
+   content= conf.general.domain + params[0].ogimage
+)
+meta(
+   property="og:site_name"
+   content= conf.general.sitename
+)
+meta(
+  property="og:type"
+  content= params[0].ogtype
+)
+meta(
+   property="og:url"
+   content= conf.general.domain + params[0].id
+)
+meta(
+   property="og:title"
+   content= params[0].title
+)
+meta(
+   property="og:description"
+   content= params[0].description
+)
+meta(
+   property="twitter:card"
+   content="summary_large_image"
+)
+meta(
+   property="twitter:site"
+   content= conf.socialmedia.twitter
+)
+meta(
+   property="twitter:creator"
+   content= params[0].twittercreator
+)
+meta(
+   property="twitter:title"
+   content= params[0].title
+)
+meta(
+   property="twitter:description"
+   content= params[0].description
+)
+meta(
+   property="twitter:image:src"
+   content= conf.general.domain + params[0].ogimage
+)
+if params[0].ldjson
+  script(type="application/ld+json") !{JSON.stringify(params[0].ldjson)}

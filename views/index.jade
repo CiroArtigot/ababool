@@ -7,11 +7,11 @@ block content
 
   #pt-main(
     class="pt-perspective"
-    ng-init="newpages=''; current='" + cur + "'; token='" + token + "';debugger=''")
+    ng-init="newpages=''; current='" + params[0].current + "'; token='" + params[0].token + "';debugger=''")
 
     - var thepages = pages
         each value, index in thepages
-          if !value.ajax || index == cur
+          if !value.ajax || index == params[0].current
             div(
             id= index
             ng-class= "theclass('" + index + "')"
@@ -21,7 +21,7 @@ block content
             data-up= value.up
             data-ajax = value.ajax
             animationend="endpage"
-            class="pt-page " + value.class 
+            class="pt-page " + value.class
             )
               div(
               class="container clearfix"

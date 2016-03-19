@@ -6,5 +6,5 @@ block content
 
   - var thepages = pages
       each value, index in thepages
-        if value.id == cur
+        if value.id == params[0].current
           include pages/amp/contents.jade

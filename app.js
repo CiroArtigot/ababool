@@ -61,7 +61,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   console.log('error en app.js: ' + err.message);
-  res.send('oppppps!' + err.message);
+  res.send('<h1>oppppps!</h1><strong>Error:</strong> <em>' + err.message + '</em>');
 });
 
 module.exports = app;
