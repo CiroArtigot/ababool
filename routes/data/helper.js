@@ -68,12 +68,12 @@ exports.getParams = function(req, res, view, pages, current, config, ldjson, cha
 
   if(pages[current].title) title = pages[current].title;
   if(pages[current].description) description = pages[current].description;
-  if(pages[current].author) description = pages[current].author;
+  if(pages[current].author) author = pages[current].author;
   if(pages[current].ogimage) ogimage = pages[current].ogimage;
-  if(pages[current].ogtype) ogimage = pages[current].ogtype;
+  if(pages[current].ogtype) ogtype = pages[current].ogtype;
   if(pages[current].twittercreator) twittercreator = pages[current].twittercreator;
   if(pages[current].amp) amp = 1;
-  if(pages[current].rss) ogimage = pages[current].rss;
+  if(pages[current].rss) rss = pages[current].rss;
 
   params.push({
       "id" : pages[current].id,
