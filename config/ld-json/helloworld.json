@@ -8,9 +8,9 @@
   "headline": "Hello World",
   "image": {
     "@type": "ImageObject",
-    "url": "http://ababool.algosemueve.es/images/ababool.jpg",
-    "height": 1200,
-    "width": 627
+    "url": "http://ababool.algosemueve.es/images/ababool-post.png",
+    "height": 800,
+    "width": 800
   },
   "datePublished": "2016-02-16T08:00:00+08:00",
   "dateModified": "2016-02-16T08:00:00+08:00",
@@ -19,13 +19,13 @@
     "name": "Ciro Artigot"
   },
    "publisher": {
-    "@type": "Person",
-    "name": "Ciro Artigot",
+     "@type": "Organization",
+     "name": "Ababool",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://ababool.algosemueve.es/images/ababool.jpg",
-      "width": 1200,
-      "height": 627
+      "url": "http://ababool.algosemueve.es/images/ababool-logo.jpg",
+      "width": 600,
+      "height": 60
     }
   },
   "description": "Ababool MEAN Full-Stack is out!. A tool, a framework ... to develop ideas."

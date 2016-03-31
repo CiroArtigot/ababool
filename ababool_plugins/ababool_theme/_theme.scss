@@ -14,9 +14,7 @@ body  {
 }
 
 div#pt-main {
-  background-color: #333;
-  background: url(../images/bright-squares.png) repeat;
-
+  background-color: #000;
 }
 
 .pt-page {
@@ -25,22 +23,41 @@ div#pt-main {
   padding-bottom: 40px;
 }
 
-#home {
-  background: url(../images/ababool020.jpg) no-repeat center center;
+pre {
+    background-color: #000;
+    color: chartreuse;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 300;
+    border: 0;
+    border-radius: 0;
+}
+
+#home, #transitions2  {
+  background: url(../images/ababool032.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: #FFF
+  color: #000;
 }
 #what {
-  background: url(../images/diamond-upholstery.png) repeat;
-  background-color: #006699; color: #000;
+  background: url(../images/ababool031.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #000;
 }
-#wow {
-  background: url(../images/diamond-upholstery.png) repeat;
-  background-color: #006699; color: #000;
+#wow, #transitions{
+  background: url(../images/ababool030.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
 }
+
 #how {
   background: url(../images/diamond-upholstery.png) repeat;
   background-color: red; color: #000;
@@ -50,22 +67,14 @@ div#pt-main {
   background-color: green; color: #000;
 }
 
-#transitions {
-  background: url(../images/diamond-upholstery.png) repeat;
-  background-color: orange; color: #000;
-}
-#transitions2 {
-  background: url(../images/diamond-upholstery.png) repeat;
-  background-color: #006699; color: #000;
-}
-
 #about {
   background: url(../images/bright-squares.png) repeat;
   background-color: #fff; color: #000}
 
-#license {
-  background: url(../images/diamond-upholstery.png) repeat;
-  background-color: #006699; color: #000}
+#license, #private-policy {
+  background-color: #fff;
+  color: #000;
+}
 
 #youtube,
 #suscribe,
@@ -76,8 +85,8 @@ div#pt-main {
   background-color: #006699; color: #000}
 
 #feedbacks, #form {
-  background: url(../images/brick-wall-dark.png) repeat;
-  background-color: #999;
+  background-color: #006699;
+  color: #FFF
 }
 
 .blog {
@@ -89,7 +98,7 @@ div#pt-main {
 }
 
 #how {
-  background: url(../images/ababool08.jpg) no-repeat center center;
+  background: url(../images/ababool030.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -98,7 +107,16 @@ div#pt-main {
 }
 
 #about {
-  background: url(../images/ababool012.jpg) no-repeat center center;
+  background: url(../images/ababool031.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFF
+}
+
+#contact {
+  background: url(../images/ababool031.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -107,7 +125,7 @@ div#pt-main {
 }
 
 #blog {
-  background: url(../images/ababool012.jpg) no-repeat center center;
+  background: url(../images/ababool033.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -115,10 +133,14 @@ div#pt-main {
   color: #FFF
 }
 
-a.tag {
-    margin-right: 5px;
+a {
+  text-decoration: underline;
 }
 
+a.tag {
+    margin-right: 5px;
+    text-decoration: none;
+}
 a.btn.btn-default {
     color: #333;
 }
@@ -130,17 +152,17 @@ button.btn.ababtn {
 
 h4-2
 button.btn.ababtn {
-    width: 275px;
+    width:  white275px;
     margin-bottom: 5px;
 }
 
 h1 {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 85px;
-    line-height: 88px;
+    font-size: 78px;
+    line-height: 82px;
     font-weight: 300;
     padding-bottom: 0;
-    margin-bottom: 0;
+    margin-bottom: 15px;
     margin-top: 15px;
 }
 
@@ -155,8 +177,8 @@ h2 {
 
 h3 {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 45px;
-    line-height: 48px;
+    font-size: 40px;
+    line-height: 43px;
     font-weight: 300;
     margin-top: 5px;
     margin-bottom: 20px;
@@ -185,12 +207,34 @@ p {
     margin-bottom: 5px;
 }
 
+
+
 span.link{
     cursor: pointer;
     color: #006699;
+    text-decoration: underline;
 }
 span.link:hover{
   text-decoration: underline;
+}
+
+span.link.white{
+    color: #FFF;
+}
+span.link.white:hover{
+    color: #f2f2f2;
+}
+
+img.icon {
+    float: left;
+    margin-right: 10px;
+    background-color: #fff;
+    max-width: 100px;
+}
+
+.ibox {
+    clear: both;
+    margin-top: 15px;
 }
 
 .box {.box-comment {
@@ -240,6 +284,10 @@ span.link:hover{
 }
 .list-group-black a, .list-group-black span.link{
   color: #006699 ;
+}
+
+.white{
+  color: #fff;
 }
 
 ul.list-group-transparent{
@@ -330,14 +378,42 @@ fieldset.files pre {
     line-height: 16px;
 }
 
-tag {
+.tag {
   margin-right: 5px;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 code {
-    font-family: Courier;
+    font-family: monospace;
     font-size: 14px;
-    padding: 2px 10px;
+    line-height: 17px;
+    border-radius: 0;
+    padding: 2px 5px;
+}
+
+.animate {
+  position: relative;
+  visibility: hidden;
+}
+.animate-in {
+  visibility:visible;
+}
+
+ul.boxes {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 15px;
+}
+
+ul.boxes li {
+    display: inline-block;
+    padding: 5px;
+    background-color: #e2e2e2;
+    margin: 3px;
 }
 
 .goback {

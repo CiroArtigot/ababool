@@ -1,16 +1,9 @@
 
 		var app = angular.module('ababool', ['ngAnimate']); // Declaramos un modulo y el nombre de la aplicación "tienda"
 
-
 		app.controller('ababoolCtrl', function ($scope, $timeout, $http, $compile) {
 
-			/* preloader out */
-			$timeout(function() {
-						$scope.preloader = true;
-			}, 1000);
-
 			$scope.getTransition = function(animation) {
-
 				switch(animation){
 					case 1:$scope.outeffect="pt-moveToLeft";$scope.ineffect="pt-moveFromRight";break;
 					case 2:$scope.outeffect="pt-moveToRight";$scope.ineffect="pt-moveFromLeft";break;
@@ -83,6 +76,73 @@
 				return true;
 			}
 
+			$scope.removeAnimate = function(id){
+				var page = document.getElementById(id);
+				var pageelements = page.getElementsByClassName("animated");
+				for(var i = 0; i < pageelements.length; i++) {
+					var item = pageelements.item(i);
+					var animation = item.getAttribute("data-animation")	;
+					if(item.classList.contains(animation)) {
+						item.classList.remove(animation);
+						item.classList.remove('visible');
+					}
+				}
+				return true;
+			};
+
+			$scope.checkAnimate = function(id){
+				var page = document.getElementById(id);
+				var pageelements = page.getElementsByClassName("animated");
+				for(var i = 0; i < pageelements.length; i++) {
+					var item = pageelements.item(i);
+					var rect = item.getBoundingClientRect();
+					var diff = rect.top - page.offsetHeight;
+					var animation = item.getAttribute("data-animation")	;
+
+					if(diff < 0) {
+						if(!item.classList.contains(animation)) {
+							item.classList.add(animation);
+							item.classList.add('visible');
+						}
+					} else {
+						if(item.classList.contains(animation)) {
+							item.classList.remove(animation);
+							item.classList.remove('visible');
+						}
+					}
+				}
+				return true;
+			};
+
+			$scope.checkModals = function(automode){
+				var pageelements = document.getElementsByClassName("md-modal");
+				for(var i = 0; i < pageelements.length; i++) {
+					var item = pageelements.item(i);
+					var load = item.getAttribute("data-auto")	;
+					var id = item.getAttribute("data-id")	;
+					var pageid = item.getAttribute("data-page");
+					var loadsw = 1;
+					if(pageid && (pageid != $scope.current)) loadsw = 0;
+					if(load==automode && loadsw) $scope.openModal(id, false);
+				}
+				return true;
+			};
+
+			$scope.scrolling = function(id){
+				var page = document.getElementById(id);
+				angular.element(page).bind("scroll", function() {
+					$scope.checkAnimate(id);
+					var pageh = page.scrollHeight - (page.scrollTop + page.offsetHeight)  ;
+					if(pageh <= 60) {
+
+						console.log('aqui:' + pageh);
+
+						$scope.checkModals(3);
+					}
+				});
+				return true;
+			};
+
 			$scope.thenavigator = function(id) {
 
 				$scope.left = '';
@@ -117,7 +177,18 @@
 
 			$scope.$watch("current", function(){
 				$scope.thenavigator($scope.current);
+			//	$scope.checkAnimate($scope.current);
+				$scope.scrolling($scope.current);
 			});
+
+			$timeout(function() {
+				$scope.preloader = true;
+				$timeout(function() {
+					$scope.checkAnimate($scope.current);
+					$scope.checkModals(1);
+					$scope.checkModals(2);
+				}, 300);
+			}, 1000);
 
 			$scope.ineffect = '';
 			$scope.outeffect = '';
@@ -126,12 +197,105 @@
 			$scope.main = angular.element(document.querySelector( '#pt-main' ));
 			$scope.backpage = '';
 
+			$timeout(function() {
+						//$scope.checkAnimate($scope.current);
+			}, 2000);
+
 			$scope.screenfull = function() {
 				if (screenfull.enabled) {
 					if(screenfull.isFullscreen) screenfull.exit();
 	        else screenfull.request();
 				}
-			}
+			};
+
+			$scope.createCookie = function(name, value, days) {
+			    if (days) {
+			        var date = new Date();
+			        date.setTime(date.getTime()+(days*24*60*60*1000));
+			        var expires = "; expires="+date.toGMTString();
+			    }
+			    else var expires = "";
+			    document.cookie = name + "=" + value + expires + "; path=/";
+					return true;
+			};
+
+			$scope.readCookie = function(name) {
+			    var nameEQ = name + "=";
+			    var ca = document.cookie.split(';');
+			    for(var i=0;i < ca.length;i++) {
+			        var c = ca[i];
+			        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+			    }
+			    return null;
+			};
+
+			$scope.openModal = function(id, overlay) {
+
+				var modal = document.getElementById('modal-' + id);
+				var animation = modal.getAttribute("data-animation")	;
+				var animationoff = modal.getAttribute("data-animation-off")	;
+				var mode = modal.getAttribute("data-mode");
+
+				if(mode==2) { // only open the modal one time each sesion
+					var cookie = $scope.readCookie('modal' + id);
+					if(cookie=='Ababool') return true;
+					$scope.createCookie('modal' + id,'Ababool', 0);
+				}
+
+				if(mode==3) { // only open the modal one time by cookie
+					var cookie = $scope.readCookie('modal' + id);
+					if(cookie=='Ababool') return true;
+					$scope.createCookie('modal' + id,'Ababool', 900);
+				}
+
+				if(overlay) $scope.openOverlay(id);
+
+				modal.classList.remove(animationoff);
+				modal.classList.add(animation);
+				modal.classList.add('visible');
+				return true;
+			};
+
+			$scope.closeModal = function(id, overlay) {
+				if(overlay) $scope.closeOverlay(id);
+				var modal = document.getElementById('modal-' + id);
+				var animation = modal.getAttribute("data-animation")	;
+				var animationoff = modal.getAttribute("data-animation-off")	;
+				var mode = modal.getAttribute("data-mode");
+				modal.classList.remove(animation);
+				modal.classList.add(animationoff);
+				$timeout(function() {
+					if(mode==4) {
+						modal.classList.add('hidden');
+						modal.classList.remove('animated');
+					}
+					modal.classList.remove('visible');
+				}, 600);
+				return true;
+			};
+
+			$scope.openOverlay = function(id) {
+				var overlay = document.getElementById('overlay-' + id);
+				var animation = overlay.getAttribute("data-animation")	;
+				var animationoff = overlay.getAttribute("data-animation-off")	;
+				overlay.classList.remove(animationoff);
+				overlay.classList.add(animation);
+				overlay.classList.add('visible');
+				return true;
+			};
+
+			$scope.closeOverlay = function(id) {
+				var overlay = document.getElementById('overlay-' + id);
+				var animation = overlay.getAttribute("data-animation")	;
+				var animationoff = overlay.getAttribute("data-animation-off")	;
+				overlay.classList.remove(animation);
+				overlay.classList.add(animationoff);
+				$timeout(function() {
+					overlay.classList.remove('visible');
+				}, 600);
+				return true;
+			};
 
 			/* gotopage funtion */
 			$scope.gotopage = function(id, animation) {
@@ -141,7 +305,6 @@
 				if($scope.animationout!='' || $scope.animationin!='') return true;
 
 				$scope.getTransition(animation);
-
 				// look if the page is loaded
 				var ispage = 0;
 				var pages = document.getElementsByClassName("pt-page");
@@ -151,8 +314,6 @@
 
 				//if the page isn't loaded then look for it by AJAX
 				if(!ispage) {
-
-					console.log('ajax');
 
 					$scope.preloader = false;
 
@@ -175,11 +336,12 @@
 						return true;
 				}
 
+				$scope.removeAnimate($scope.current);
 				$scope.animationout = $scope.current;
 				$scope.animationin = id;
 				$scope.backpage = $scope.current;
 				$scope.current = id;
-				$scope.thenavigator(id);
+				$scope.thenavigator(id); //change to watch current?
 				return true;
 			}
 
@@ -204,8 +366,9 @@
 				var pahtlocationfull = pahtlocation +  id;
 				ga('send', 'pageview', pahtlocationfull);
 
+				$scope.checkAnimate(id);
+				$scope.checkModals(2);
 			//	console.log('pahtlocationfull: ' + pahtlocationfull);
-
 				window.history.pushState({}, "Title", "/" + id);
 				return true;
 			}

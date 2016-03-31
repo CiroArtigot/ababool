@@ -1,15 +1,25 @@
-div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 darkbox")
-  h1 Wow! thats great!
-  h3
-    | Some examples, demos and ideas
+div(class="box col-xs-12 col-sm-12 col-md-8 col-lg-8 white")
+  h1 How to
+  h3(class="animated" data-animation="bounceInLeft")
+    | Tutorials, examples, demos and ideas.
 
-  ul(class="list-group list-group-black")
-    li(class="list-group-item")
-      h4 Page transitions
-      p The Ababool pages can take among 64 different animations and CSS3 transitions.
-      button(class="btn btn-primary"
-      ng-click="gotopage('transitions',20)"
-      ) See all transitions
+  div(class="box3")
+    ul(class="list-group list-group-transparent")
+
+      each post in data
+        li(class="list-group-item animated" data-animation="bounceInLeft")
+          h4 !{post.title}
+          p
+            | !{post.teaser}
+          div
+            | <button class="btn btn-primary btn-xs" ng-click="gotopage('#{post.id}',30)"><span class="glyphicon glyphicon-file"  aria-hidden="true"></span>Read post</button>
+            | <a href="#{conf.general.domain + post.slug}" class="btn btn-default btn-xs">
+            | <span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>
+
+
+  h3(class="animated mt-30" data-animation="bounceInLeft")
+    | Ababool examples:
+
 
   ul(class="list-group list-group-black")
     li(class="list-group-item")
@@ -48,3 +58,18 @@ div(class="box col-xs-12 col-sm-12 col-md-10 col-lg-8 darkbox")
       button(class="btn btn-primary"
       ng-click="gotopage('youtube',30)"
       ) Request a video
+
+  ul(class="list-group list-group-black")
+    li(class="list-group-item")
+      h4 Modals
+      p This is a simple demo of a modal window
+
+      button(class="btn btn-primary"
+      ng-click="openModal(1, true)"
+      ) Modal with overlay
+
+      | #{' '}
+
+      button(class="btn btn-primary"
+      ng-click="openModal(1, false)"
+      ) Modal without overlay

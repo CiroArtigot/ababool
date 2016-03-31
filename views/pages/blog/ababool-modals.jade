@@ -1,0 +1,237 @@
+div(class="box col-xs-12 col-sm-12 col-md-12 col-lg-12 lightbox")
+  h1 Modals
+  h3
+    | Display nice animated modals on your Ababool project.
+
+  include ../../../ababool_plugins/blog/blogdata.jade
+
+  div(class="box4")
+
+    p(class="mt20")
+      | Ababool integrates a modal plugin for displaying animated modal divs:
+
+    ul(class="mt20")
+      li On ng-click (use the angular ngClick directive on the desired html element).
+      li When a page loads.
+      li When the scroll reaches to the bottom.
+      li Call the modal from function.
+
+    p(class="mt20")
+      | Display the modals with or without overlay:
+
+    button(
+      class="btn btn-danger btn-xs"
+      ng-click="openModal(1, true)"
+      ) Modal with overlay
+
+    | #{' '}
+
+    button(
+      class="btn btn-danger btn-xs"
+      ng-click="openModal(1, false)"
+      ) Modal without overlay
+
+    pre(class="mt20")
+      | button(class="btn btn-primary"
+      | ng-click="openModal(1, true)"
+      | ) Modal with overlay
+      | #{''}
+      | button(class="btn btn-primary"
+      | ng-click="openModal(1, false)"
+      | ) Modal without overlay
+
+    p(class="mt20")
+      | To open a modal use: <code>ng-click="openModal(modalid, overlay)"</code>
+      | <br/>To close a modal use: <code>ng-click="closeModal(modalid, overlay)"</code>
+      | <br/>Where modalid is numeric and overlay boolean (true/false)
+
+    h4(class="mt20")
+      | Modal config:
+
+    code ./ababool_plugins/modals/modals/modal1.jade
+
+    pre(class="mt10")
+      | div(
+      |   id="modal-1"
+      |   data-id = "1"
+      |   class="md-modal md-modal-1 animated"
+      |   data-animation="bounceInLeft"
+      |   data-animation-off="bounceOutLeft"
+      | )
+      |   div(class="md-content")
+      |     div(class="close")
+      |       img(src="../images/close.png" ng-click="closeModal(1, true)")
+      |     h3 This is an example Title
+      |     div(class="md-content-content")
+      |     p This is a example content
+      |     #{''}
+      | div(
+      |   class="md-overlay overlay-theme-1 animated"
+      |   data-animation="fadeIn"
+      |   data-animation-off="fadeOut"
+      |   ng-click="closeModal(1, true)"
+      |   id="overlay-1"
+      | )
+
+    h4(class="mt20")
+      | Modal on page load
+
+    p
+      | Create a modal that launches when the page loads, for example a cookie alert:
+
+    code ./ababool_plugins/modals/modals/modal1.jade
+
+    pre(class="mt10")
+      | div(
+      |   id="modal-2"
+      |   data-id = "2"
+      |   class="md-modal md-modal-2 animated"
+      |   data-animation="bounceInDown"
+      |   data-animation-off="bounceOutDown"
+      |   data-auto = "1"
+      |   data-mode = "3"
+      | )
+      |   div(class="md-content")
+      |     div(class="md-content-content cookie-content")
+      |       p
+      |         | This website uses cookies to ensure you get the best experience on our website <a href="#{conf.general.domain + 'private-policy'}">More info</a>
+      |         button(class="btn btn-default btn-xs pull-right" ng-click="closeModal(2, false)") Got it!
+
+
+    h4(class="mt20")
+      | Modal when the scroll reaches the bottom
+
+    p
+      | Create a modal that launches when the page scrolls to the bottom:
+
+    code ./ababool_plugins/modals/modals/modal1.jade
+
+    pre(class="mt10")
+      | div(
+      |  id="modal-3"
+      |   data-id = "3"
+      |   class="md-modal md-modal-3 animated"
+      |   data-animation="bounceInLeft"
+      |   data-animation-off="bounceOutLeft"
+      |   data-auto = "3"
+      |   data-mode = "4"
+      |   data-page = "wow"
+      | )
+      |   div(class="md-content")
+      |     div(class="close")
+      |       img(src="../images/close.png" ng-click="closeModal(3, false)")
+      |     div(class="md-content-content")
+      |       p
+      |         | This is modal window wich appears when you scroll down in this page:)
+
+
+    h4(class="mt20") Modal parameters
+
+    ul
+      li
+        | Add <code>class="md-modal md-modal-[id] animated"</code>  to the modal.
+        | and set the modal [id].
+      li
+        | Set the modal id on the <code>data-id = "[id]"</code> attribute.
+      li
+        | Set the enter animation:<code>data-animation="bounceInLeft"</code>.
+      li
+        | Set the exit animation: <code>data-animation-off="bounceOutLeft"</code>.
+      li
+        | Set <code>data-auto=1</code> to load the modal when the page loads.
+      li
+        | Set <code>data-auto=2</code> to load the modal when the page changes.
+      li
+        | Set <code>data-auto=3</code> to load the modal when the scroll reaches down.
+      li
+        | Set <code>data-mode=2</code> to load the modal once per session.
+      li
+        | Set <code>data-mode=3</code> to load the modal only one time (by cookie).
+      li
+        | Set <code>data-mode=4</code> to load the modal only one time when the scroll reaches down.
+
+
+    h4(class="mt20") Animate.css
+    p
+      | We use the <a href="https://github.com/daneden/animate.css" target="_blank">Daniel Eden animate.css cross-browser library of CSS animations</a>, so
+      | you can use all the library effects:
+
+    ul(class="boxes")
+      li(class="animated" data-animation="bounceInLeft") bounce
+      li(class="animated" data-animation="bounceInLeft") flash
+      li(class="animated" data-animation="bounceInLeft") pulse
+      li(class="animated" data-animation="bounceInLeft") rubberBand
+      li(class="animated" data-animation="bounceInLeft") shake
+      li(class="animated" data-animation="bounceInLeft") headShake
+      li(class="animated" data-animation="bounceInLeft") swing
+      li(class="animated" data-animation="bounceInLeft") tada
+      li(class="animated" data-animation="bounceInLeft") wobble
+      li(class="animated" data-animation="bounceInLeft") jello
+      li(class="animated" data-animation="bounceInLeft") bounceIn
+      li(class="animated" data-animation="bounceInLeft") bounceInDown
+      li(class="animated" data-animation="bounceInLeft") bounceInLeft
+      li(class="animated" data-animation="bounceInLeft") bounceInRight
+      li(class="animated" data-animation="bounceInLeft") bounceInUp
+      li(class="animated" data-animation="bounceInLeft") bounceOut
+      li(class="animated" data-animation="bounceInLeft") bounceOutDown
+      li(class="animated" data-animation="bounceInLeft") bounceOutLeft
+      li(class="animated" data-animation="bounceInLeft") bounceOutRight
+      li(class="animated" data-animation="bounceInLeft") bounceOutUp
+      li(class="animated" data-animation="bounceInLeft") fadeIn
+      li(class="animated" data-animation="bounceInLeft") fadeInDown
+      li(class="animated" data-animation="bounceInLeft") fadeInDownBig
+      li(class="animated" data-animation="bounceInLeft") fadeInLeft
+      li(class="animated" data-animation="bounceInLeft") fadeInLeftBig
+      li(class="animated" data-animation="bounceInLeft") fadeInRight
+      li(class="animated" data-animation="bounceInLeft") fadeInRightBig
+      li(class="animated" data-animation="bounceInLeft") fadeInUp
+      li(class="animated" data-animation="bounceInLeft") fadeInUpBig
+      li(class="animated" data-animation="bounceInLeft") fadeOut
+      li(class="animated" data-animation="bounceInLeft") fadeOutDown
+      li(class="animated" data-animation="bounceInLeft") fadeOutDownBig
+      li(class="animated" data-animation="bounceInLeft") fadeOutLeft
+      li(class="animated" data-animation="bounceInLeft") fadeOutLeftBig
+      li(class="animated" data-animation="bounceInLeft") fadeOutRight
+      li(class="animated" data-animation="bounceInLeft") fadeOutRightBig
+      li(class="animated" data-animation="bounceInLeft") fadeOutUp
+      li(class="animated" data-animation="bounceInLeft") fadeOutUpBig
+      li(class="animated" data-animation="bounceInLeft") flipInX
+      li(class="animated" data-animation="bounceInLeft") flipInY
+      li(class="animated" data-animation="bounceInLeft") flipOutX
+      li(class="animated" data-animation="bounceInLeft") flipOutY
+      li(class="animated" data-animation="bounceInLeft") lightSpeedIn
+      li(class="animated" data-animation="bounceInLeft") lightSpeedOut
+      li(class="animated" data-animation="bounceInLeft") rotateIn
+      li(class="animated" data-animation="bounceInLeft") rotateInDownLeft
+      li(class="animated" data-animation="bounceInLeft") rotateInDownRight
+      li(class="animated" data-animation="bounceInLeft") rotateInUpLeft
+      li(class="animated" data-animation="bounceInLeft") rotateInUpRight
+      li(class="animated" data-animation="bounceInLeft") rotateOut
+      li(class="animated" data-animation="bounceInLeft") rotateOutDownLeft
+      li(class="animated" data-animation="bounceInLeft") rotateOutDownRight
+      li(class="animated" data-animation="bounceInLeft") rotateOutUpLeft
+      li(class="animated" data-animation="bounceInLeft") rotateOutUpRight
+      li(class="animated" data-animation="bounceInLeft") hinge
+      li(class="animated" data-animation="bounceInLeft") rollIn
+      li(class="animated" data-animation="bounceInLeft") rollOut
+      li(class="animated" data-animation="bounceInLeft") zoomIn
+      li(class="animated" data-animation="bounceInLeft") zoomInDown
+      li(class="animated" data-animation="bounceInLeft") zoomInLeft
+      li(class="animated" data-animation="bounceInLeft") zoomInRight
+      li(class="animated" data-animation="bounceInLeft") zoomInUp
+      li(class="animated" data-animation="bounceInLeft") zoomOut
+      li(class="animated" data-animation="bounceInLeft") zoomOutDown
+      li(class="animated" data-animation="bounceInLeft") zoomOutLeft
+      li(class="animated" data-animation="bounceInLeft") zoomOutRight
+      li(class="animated" data-animation="bounceInLeft") zoomOutUp
+      li(class="animated" data-animation="bounceInLeft") slideInDown
+      li(class="animated" data-animation="bounceInLeft") slideInLeft
+      li(class="animated" data-animation="bounceInLeft") slideInRight
+      li(class="animated" data-animation="bounceInLeft") slideInUp
+      li(class="animated" data-animation="bounceInLeft") slideOutDown
+      li(class="animated" data-animation="bounceInLeft") slideOutLeft
+      li(class="animated" data-animation="bounceInLeft") slideOutRight
+      li(class="animated" data-animation="bounceInLeft") slideOutUp
+
+
+  include ../../../ababool_plugins/blog/blogfooter.jade

@@ -1,0 +1,75 @@
+
+
+div(
+  id="modal-1"
+  data-id = "1"
+  class="md-modal md-modal-1 animated"
+  data-animation="bounceInLeft"
+  data-animation-off="bounceOutLeft"
+  )
+  div(class="md-content")
+    div(class="close")
+      img(src="../images/close.png" ng-click="closeModal(1, true)")
+    div(class="md-content-content")
+    p
+      | This is modal window wich appears when you click on the button.
+      | See <a href="#{conf.general.domain + 'blog/ababool-modals'}">how to integrate modals on Ababool</a>.
+
+
+div(
+  class="md-overlay overlay-theme-1 animated"
+  data-animation="fadeIn"
+  data-animation-off="fadeOut"
+  ng-click="closeModal(1, true)"
+  id="overlay-1"
+  )
+
+div(
+  id="modal-2"
+  data-id = "2"
+  class="md-modal md-modal-2 animated"
+  data-animation="bounceInDown"
+  data-animation-off="bounceOutDown"
+  data-auto = "1"
+  data-mode = "3"
+  )
+  div(class="md-content")
+    div(class="md-content-content cookie-content")
+      p
+        | This website uses cookies to ensure you get the best experience on our website <a href="#{conf.general.domain + 'private-policy'}">More info</a>
+        button(class="btn btn-default btn-xs pull-right" ng-click="closeModal(2, false)") Got it!
+
+div(
+  id="modal-3"
+  data-id = "3"
+  class="md-modal md-modal-3 animated"
+  data-animation="bounceInLeft"
+  data-animation-off="bounceOutLeft"
+  data-auto = "3"
+  data-mode = "4"
+  )
+  div(class="md-content")
+    div(class="close")
+      img(src="../images/close.png" ng-click="closeModal(3, false)")
+    div(class="md-content-content")
+      p
+        | This is modal window wich appears when you scroll down in this page:)
+        | See <a href="#{conf.general.domain + 'blog/ababool-modals'}">how to integrate modals on Ababool</a>.
+
+
+div(
+  id="modal-4"
+  data-id = "4"
+  class="md-modal md-modal-4 animated"
+  data-animation="bounceInLeft"
+  data-animation-off="bounceOutLeft"
+  data-auto = "1"
+  data-page = "blog/ababool-modals"
+  )
+  div(class="md-content")
+    div(class="close")
+      img(src="../images/close.png" ng-click="closeModal(4, false)")
+    div(class="md-content-content")
+    p
+      | This is modal window wich appears when you load this page.
+      | See <a href="#{conf.general.domain + 'blog/ababool-modals'}">how to integrate modals on Ababool</a>.

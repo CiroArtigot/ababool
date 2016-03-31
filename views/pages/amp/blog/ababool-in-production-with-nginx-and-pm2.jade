@@ -1,0 +1,128 @@
+div(class="box")
+  p(class="breadcrumb")
+    | This post is published on <a href="/">Ababool</a> > <a href="/blog">Blog</a>
+
+  h1 How To Set Up Ababool for production with Nginx and pm2
+
+  include ../../../../ababool_plugins/blog/blogdata_amp.jade
+
+  div(class="box4")
+
+    p(class="mt10")
+      strong
+        | In this post we are going to explain how to put Ababool in production using
+        | nginx as a reverse proxy web server and pm2 to keep the application alive.
+
+    p(class="mt10")
+      | To make Ababool run in production we need to:
+
+    h4(class="mt10")
+      Install Ababool
+
+    p(class="mt10")
+      | <p>You can clone the <a href="https://github.com/CiroArtigot/ababool" target="blank">Ababool Repository on Git Hub</a> or
+      | install Ababool with the <a href="https://www.npmjs.com/package/ababool-generator">npm Ababool App generator</a> (recommended).</p>
+
+    pre
+      | $ sudo npm install -g ababool-generator
+      | $ ababool myapp
+      | $ cd myapp
+      | $ npm install
+      | $ gulp
+      | $ npm start
+
+    h4(class="mt30") Prerequisite technologies
+    p
+      | Ababool is a MEAN Full-Stack solution, so remember that you must install NodeJS and MongoDB before.
+
+    h4(class="mt30") Prerequisite packages
+    p
+      | Ababool uses Gulp and Bower, so you would need to install both:
+    pre
+      | $ sudo npm install -g gulp
+      | $ sudo npm install -g bower
+
+    h4(class="mt30") Ningx
+    p
+      | <a href="http://nginx.org/en/docs/install.html" target="_blank">Install Nginx</a>
+      | in the server and then create a site, for example:
+
+    code
+      | etc/nginx/sites-enabled/yourdomain:
+
+    pre
+      | server {
+      |   listen 80;
+      |   server_name yourdomain.com;
+      |   location / {
+      |     proxy_pass http://127.0.0.1:3000;
+      |     proxy_http_version 1.1;
+      |     proxy_set_header Upgrade $http_upgrade;
+      |     proxy_set_header Connection 'upgrade';
+      |     proxy_set_header Host $host;
+      |     proxy_cache_bypass $http_upgrade;
+      |   }
+      | }
+
+    p
+      | You can create another site for your www.yourdomain.com:
+
+    pre
+      | server {
+      | server_name www.yourdomain.com;
+      | return 301 $scheme://yourdomain.com$request_uri;
+      | }
+
+    p
+      | Restart the nginx service to enable our site:
+
+    code
+      | sudo service nginx restart
+
+
+    h4(class="mt30") Pm2
+    p
+      | After installing nginx we need to <a href="https://www.npmjs.com/package/pm2" target="_blank">install pm2</a>:
+    pre
+      | $ npm install pm2 -g
+
+    h4(class="mt30") Rock and roll
+    p
+      | Enter on our Ababool app folder and run:
+    pre
+      | $ cd myapp
+      | $ gulp
+      | $ pm2 start bin/www --name "ababool"
+      | $ pm2 save
+
+    p(class="mt20")
+      | To take a look to all of the pm2 process:
+    pre
+      | $ pm2 status
+
+    p(class="mt20")
+      | To delete a pm2 process:
+    pre
+      | $ pm2 delete id
+
+    p(class="mt20")
+      | To have more than one Ababool application running on the same server
+      | we need to run each app on distinct port.
+
+    p(class="mt20")
+      | To change the app port just edit the config.json file on our Ababool app root folder:
+
+
+    pre
+      | {
+      | "name": "ababool",
+      | "version": "1.0.0",
+      | "port" : "3000",
+      | "mongodb" : "ababooldb",
+      | "plugins" : {
+      |   "ababool_theme" : true
+      |   }
+      | }
+
+
+  include ../../../../ababool_plugins/blog/blogfooter_amp.jade

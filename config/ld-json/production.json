@@ -1,0 +1,30 @@
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"http://ababool.algosemueve.es/blog/hello-world"
+  },
+  "headline": "AMP - Ababool blog",
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://ababool.algosemueve.es/images/ababool-post.png",
+    "height": 800,
+    "width": 800
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ciro Artigot"
+  },
+   "publisher": {
+     "@type": "Organization",
+     "name": "Ababool",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://ababool.algosemueve.es/images/ababool-logo.jpg",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "description": "Ababool blog post: AMP"
+}

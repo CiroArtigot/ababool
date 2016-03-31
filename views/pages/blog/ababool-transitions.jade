@@ -1,0 +1,43 @@
+div(class="box col-xs-12 col-sm-12 col-md-12 col-lg-12 lightbox")
+  h1 Page transitions
+  h3
+    | The Ababool pages can use 64 different animations and CSS3 transitions.
+
+  include ../../../ababool_plugins/blog/blogdata.jade
+
+  div(class="box4")
+    p(class="mt20")
+      | Every time a page is requested, the page will use a different animation.
+      | <br/>To set the page transition add the "animation" property on the config/pages.json:
+
+    code(class="mt30")
+      | config/pages.json
+    pre
+      | "home" : {
+      |   "id" : "page",
+      |   "title" : "The title",
+      |   "menutitle": "The menu title",
+      |   "description": "A description",
+      |   "animation" :33
+      | }
+
+    h4(class="mt20") Angular ng-click event
+    p
+      | We can also request a page with a custom animation with the Ababool <code>ng-click</code>.
+      | When we use this function we will need to set the page id and the animation number.
+
+    code(class="mt30")
+      | ng-click="gotopage(pageid,animation)
+
+    pre
+      | button(class="btn btn-primary"
+      | ng-click="gotopage('pageid',20)"
+      | ) Go to page
+
+
+    button(class="btn btn-primary mt-10"
+    ng-click="gotopage('transitions',20)"
+    ) Test transitions here
+
+
+  include ../../../ababool_plugins/blog/blogfooter.jade

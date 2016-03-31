@@ -1,0 +1,32 @@
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"http://ababool.algosemueve.es/blog/ababool-transitions"
+  },
+  "headline": "Ababool page transitions",
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://ababool.algosemueve.es/images/ababool-post.png",
+    "height": 800,
+    "width": 800
+  },
+  "datePublished": "2016-03-26T08:00:00+08:00",
+  "dateModified": "2016-03-26T08:00:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Ciro Artigot"
+  },
+   "publisher": {
+     "@type": "Organization",
+     "name": "Ababool",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://ababool.algosemueve.es/images/ababool-logo.jpg",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "description": "The Ababool pages can use 64 different animations and CSS3 transitions. Every time a page is requested, the page will use a different animation."
+}

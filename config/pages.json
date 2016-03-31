@@ -16,7 +16,7 @@
       "what" : {
           "id" : "what",
           "title" : "What - Ababool: main Features and aspects",
-          "menutitle": "What",
+          "menutitle": "What is",
           "description": "Main Features and aspects of Ababool: an open source, creative and smart MEAN Javascript Full-Stack Solution",
           "left" :"home",
           "right":"wow",
@@ -29,40 +29,26 @@
       "wow" : {
           "id" : "wow",
           "title" : "Wow - Ababool: examples, demos and ideas",
-          "menutitle": "Wow",
+          "menutitle": "How to",
           "description": "Some Ababool examples, demos, inspiration and ideas",
           "left" :"what",
-          "right":"how",
-          "next" : "how",
-          "prev" : "what",
-          "mainmenu" :1,
-          "animation" : 30
-      },
-
-      "how" : {
-          "id" : "how",
-          "title" : "How - Ababool: documentation to work with",
-          "menutitle": "How",
-          "description": "How. Useful documentation to work with Ababool",
-          "left" :"wow",
-          "right":"with",
-          "next" : "with",
-          "prev" : "wow",
-          "mainmenu" :1,
-          "animation" : 31
-      },
-
-      "with" : {
-          "id" : "with",
-          "title" : "With - Ababool needs your cooperation!",
-          "menutitle": "With",
-          "description": "With you. Ababool needs your cooperation!",
-          "left" :"how",
           "right":"start",
           "next" : "start",
-          "prev" : "how",
+          "prev" : "what",
           "mainmenu" :1,
-          "animation" : 32
+          "animation" : 62,
+          "ajax" : 1,
+          "data" : "howto.js",
+          "rss" : "how to"
+      },
+
+      "private-policy" : {
+          "id" : "private-policy",
+          "title" : "Private policy",
+          "menutitle": "Private policy",
+          "description": "This page explains our approach to privacy on our website and how it affects you.",
+          "animation" : 58,
+          "ajax" : 1
       },
 
       "start" : {
@@ -70,8 +56,8 @@
           "title" : "Why Ababool the JS Full Stack SPA",
           "menutitle": "Start",
           "description": "this is the description of why",
-          "left" :"with",
-          "prev" : "with",
+          "left" :"wow",
+          "prev" : "wow",
           "right":"blog",
           "next" : "blog",
           "mainmenu" :1,
@@ -328,6 +314,99 @@
           "tags": ["AMP", "blog", "SEO", "how to"],
           "ajax" : 1,
           "amp" : 1
+      },
+
+      "blog/new-version-1.4.0" : {
+          "id" : "blog/new-version-1.4.0",
+          "title" : "Ababool 1.4.0.",
+          "description": "In this version Ababol becomes easier and clean, improving application development. New features are also integrated to use Ababool as a powerful  CMS / blog. ",
+          "animation" : 33,
+          "author" : "Ciro Artigot",
+          "class" : "blog",
+          "date" : "2016-03-20T08:00:00+08:00",
+          "ogimage" : "images/ababool.jpg",
+          "ld-json" : "new-version-1.4.0.json",
+          "tags": ["blog", "Versions"],
+          "ajax" : 1,
+          "amp" : 1
+      },
+
+      "blog/ababool-in-production-with-nginx-and-pm2" : {
+          "id" : "blog/ababool-in-production-with-nginx-and-pm2",
+          "title" : "How To Set Up Ababool for production with Nginx and pm2",
+          "description": "In this post we are going to explain how to put Ababool in production using nginx as a reverse proxy web server and pm2 to keep the application alive.",
+          "animation" : 33,
+          "author" : "Ciro Artigot",
+          "class" : "blog",
+          "date" : "2016-03-23T08:00:00+08:00",
+          "ogimage" : "images/ababool-nginx.png",
+          "ld-json" : "ababool-in-production-with-nginx-and-pm2.json",
+          "tags": ["blog", "how to", "production"],
+          "ajax" : 1,
+          "amp" : 1
+      },
+
+      "blog/ababool-transitions" : {
+          "id" : "blog/ababool-transitions",
+          "title" : "Ababool page transitions",
+          "description": "The Ababool pages can use 64 different animations and CSS3 transitions. Every time a page is requested, the page will use a different animation.",
+          "animation" : 60,
+          "author" : "Ciro Artigot",
+          "class" : "blog",
+          "date" : "2016-03-26T08:00:00+08:00",
+          "ld-json" : "ababool-transitions.json",
+          "tags": ["blog", "how to"],
+          "ajax" : 1,
+          "amp" : 1
+      },
+
+      "blog/ababool-animations" : {
+          "id" : "blog/ababool-animations",
+          "title" : "Ababool element animations",
+          "description": "Animate any element of your page.The element animation will be triggered when the element becomes visible: when the pages loads or scrolling to the element.",
+          "animation" : 60,
+          "author" : "Ciro Artigot",
+          "class" : "blog",
+          "date" : "2016-03-28T08:00:00+08:00",
+          "ld-json" : "ababool-animations.json",
+          "tags": ["blog", "how to"],
+          "ajax" : 1,
+          "amp" : 1
+      },
+
+      "blog/ababool-modals" : {
+          "id" : "blog/ababool-modals",
+          "title" : "Ababool Modals",
+          "description": "Launch nice animated modals on-click, on load and when the scroll reaches to the bottom of the page.",
+          "animation" : 60,
+          "author" : "Ciro Artigot",
+          "class" : "blog",
+          "date" : "2016-03-28T08:00:00+08:00",
+          "ld-json" : "ababool-modals.json",
+          "tags": ["blog", "how to"],
+          "ajax" : 1,
+          "amp" : 1
+      },
+
+      "blog/ababool-thanks-and-codes" : {
+          "id" : "blog/ababool-thanks-and-codes",
+          "title" : "Thanks and used codes.",
+          "description": "Ababool uses open source codes and inspirations from third people. Here are our thanks.",
+          "animation" : 60,
+          "author" : "Ciro Artigot",
+          "class" : "blog",
+          "date" : "2016-03-28T08:00:00+08:00",
+          "ld-json" : "ababool-greetings.json",
+          "tags": ["blog", "license"],
+          "ajax" : 1,
+          "amp" : 1
+      },
+
+      "example1" : {
+          "id" : "example1",
+          "title" : "example1 apareciendo elementos",
+          "description": "aparecen al verse con un delay",
+          "animation" : 33
       },
 
       "es" : {

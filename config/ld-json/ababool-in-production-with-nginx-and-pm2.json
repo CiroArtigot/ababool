@@ -1,0 +1,32 @@
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"http://ababool.algosemueve.es/blog/ababool-in-production-with-nginx-and-pm2"
+  },
+  "headline": "How To Set Up Ababool for production with Nginx and pm2",
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://ababool.algosemueve.es/images/ababool-nginx.png",
+    "height": 800,
+    "width": 800
+  },
+  "datePublished": "2016-03-23T08:00:00+08:00",
+  "dateModified": "2016-03-23T08:00:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Ciro Artigot"
+  },
+   "publisher": {
+     "@type": "Organization",
+     "name": "Ababool",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://ababool.algosemueve.es/images/ababool-logo.jpg",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "description": "In this post we are going to explain how to put Ababool in production using nginx as a reverse proxy web server and pm2 to keep the application alive."
+}

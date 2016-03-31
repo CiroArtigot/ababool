@@ -1,0 +1,32 @@
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"http://ababool.algosemueve.es/blog/ababool-thanks-and-codes"
+  },
+  "headline": "hanks and used codes.",
+  "image": {s
+    "@type": "ImageObject",
+    "url": "http://ababool.algosemueve.es/images/ababool-post.png",
+    "height": 800,
+    "width": 800
+  },
+  "datePublished": "2016-03-28T08:00:00+08:00",
+  "dateModified": "2016-03-28T08:00:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Ciro Artigot"
+  },
+   "publisher": {
+     "@type": "Organization",
+     "name": "Ababool",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://ababool.algosemueve.es/images/ababool-logo.jpg",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "description": "Ababool uses open source codes and inspirations from third people. Here are our thanks."
+}

@@ -1,0 +1,32 @@
+div(class="box")
+  p(class="breadcrumb")
+    | This post is published on <a href="/">Ababool</a> > <a href="/blog">Blog</a>
+
+  h1 New Ababool 1.4.0 version
+
+  include ../../../../ababool_plugins/blog/blogdata_amp.jade
+
+  div(class="box4")
+
+  
+    h4 Log file:
+
+    p
+      | - <strong>Modified ./routes/index.js file:</strong> now the router is clearest and is more easy to add new routes.
+    p
+      | - <strong>Modifed ./routes/controller.js file:</strong> clean and ordered to make it easier.
+    p
+      | - <strong>Added ./router/data/helper.js file:</strong>  new reusable module functions to make the controller more easy to work with it.
+    p
+      | - <strong>New blog funcionality:</strong> we can show all the post tagged with an especific tag in a jade view.
+    p
+      | - <strong>New tags functionality:</strong> automatic tag pages.
+    p
+      | - <strong>AMP pages</strong>.
+    p
+      | - <strong>Ld-JSON schemas integration</strong>.
+    p
+      | - <strong>RSS integration</strong>.
+
+
+  include ../../../../ababool_plugins/blog/blogfooter_amp.jade
